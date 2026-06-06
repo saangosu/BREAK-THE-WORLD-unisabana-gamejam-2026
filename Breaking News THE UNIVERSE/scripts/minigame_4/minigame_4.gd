@@ -91,12 +91,14 @@ func animate_wave(line: Line2D, freq: float, amp: float):
 		var y = sin(t * TAU * (freq * 10.0) + time_passed * 10.0) * amp
 		line.set_point_position(i, Vector2(x, y))
 
+var tex_broken = preload("res://assets/sprites/minigame_4/IMG_1510.png")
+
 func win_game():
 	game_over = true
 	emit_signal("point_scored")
 	
 	# "Explotar" el planeta
-	planet.visible = false
+	planet.texture = tex_broken
 	var particles = CPUParticles2D.new()
 	particles.position = planet.position
 	particles.emitting = true

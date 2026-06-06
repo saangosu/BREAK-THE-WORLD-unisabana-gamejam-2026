@@ -47,7 +47,7 @@ func spawn_asteroid():
 	current_asteroid.asteroid_launched.connect(_on_asteroid_launched)
 	current_asteroid.asteroid_destroyed.connect(_on_asteroid_destroyed)
 	current_asteroid.hit_planet.connect(_on_hit_planet)
-	add_child(current_asteroid)
+	call_deferred("add_child", current_asteroid)
 
 func _on_asteroid_launched():
 	var launched_asteroid = current_asteroid
@@ -80,7 +80,7 @@ func _on_planet_destroyed(pos: Vector2):
 	emit_signal("point_scored")
 	var bh = black_hole_scene.instantiate()
 	bh.global_position = pos
-	add_child(bh)
+	call_deferred("add_child", bh)
 	
 	planets_to_destroy -= 1
 	if planets_to_destroy <= 0:
