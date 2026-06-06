@@ -1,15 +1,17 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://bnktwu72n3sd8" path="res://scripts/asteroid.gd" id="1_ast"]
+[ext_resource type="Texture2D" path="res://assets/sprites/minigame_2/Asteroide.png" id="2_tex"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ast"]
 radius = 30.0
 
 [node name="Asteroid" type="RigidBody2D"]
 script = ExtResource("1_ast")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.5, 0.5, 0.5, 1)
-polygon = PackedVector2Array(0, -30, 21.2, -21.2, 30, 0, 21.2, 21.2, 0, 30, -21.2, 21.2, -30, 0, -21.2, -21.2)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_tex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ast")

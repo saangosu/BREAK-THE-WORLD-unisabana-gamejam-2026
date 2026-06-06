@@ -1,16 +1,18 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" uid="uid://rq5qva7wbslg" path="res://scripts/planet.gd" id="1_pla"]
+[ext_resource type="Texture2D" path="res://assets/sprites/minigame_2/planeta 2 completo.png" id="2_tex"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pla"]
 radius = 100.0
 
 [node name="Planet" type="StaticBody2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_pla")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.2, 0.8, 0.2, 1)
-polygon = PackedVector2Array(0, -100, 70.7, -70.7, 100, 0, 70.7, 70.7, 0, 100, -70.7, 70.7, -100, 0, -70.7, -70.7)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pla")

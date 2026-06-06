@@ -76,10 +76,34 @@ func spawn_planet(pos: Vector2):
 	planet.planet_destroyed.connect(_on_planet_destroyed)
 	planet_container.add_child(planet)
 
-func _on_planet_destroyed(pos: Vector2):
+func _on_planet_destroyed(pos: Vector2, p_color: Color):
 	emit_signal("point_scored")
+	
+	# Restos volando (Fragmentos)
+	for i in range(9):
+		var particles = CPUParticles2D.new()
+		var tex = load("res://assets/sprites/minigame_2/Planeta 2 destruido_frag_" + str(i) + ".png")
+		if tex:
+			particles.texture = tex
+			particles.emission_shape = CPUParticles2D.EMISSION_SHAPE_POINT
+			particles.spread = 180.0
+			particles.gravity = Vector2(0, 0)
+			particles.initial_velocity_min = 300.0
+			particles.initial_velocity_max = 700.0
+			particles.scale_amount_min = 0.05
+			particles.scale_amount_max = 0.05
+			particles.color = p_color
+			particles.explosiveness = 1.0
+			particles.amount = 1
+			particles.one_shot = true
+			particles.lifetime = 1.5
+			particles.global_position = pos
+			call_deferred("add_child", particles)
+	
+	# Agujero Negro
 	var bh = black_hole_scene.instantiate()
 	bh.global_position = pos
+	bh.get_node("Sprite2D").modulate = p_color
 	call_deferred("add_child", bh)
 	
 	planets_to_destroy -= 1
