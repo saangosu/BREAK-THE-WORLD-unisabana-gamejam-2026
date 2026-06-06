@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bs0wprtx8ukj3"]
+
+[ext_resource type="Script" uid="uid://bo5fkdx8lwap3" path="res://scenes/minigame_2/minigame_2_manager.gd" id="1_mgr"]
+
+[node name="Minigame2" type="Node2D" unique_id=1349073295]
+script = ExtResource("1_mgr")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1637525103]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.1, 0.1, 0.2, 1)
+
+[node name="AsteroidSpawnPoint" type="Marker2D" parent="." unique_id=430254879]
+position = Vector2(300, 540)
+
+[node name="PlanetContainer" type="Node2D" parent="." unique_id=1658904438]
