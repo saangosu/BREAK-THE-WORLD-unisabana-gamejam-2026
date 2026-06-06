@@ -8,6 +8,8 @@ var count = 5
 func _ready() -> void:
 	random_y = randf_range(-20, 0) * 30
 	random_x = randf_range(-10, 10)
+	rotation = randi_range(-360, 360)
+	angular_velocity = randf_range(-5, 5)
 
 func _process(_delta: float) -> void:
 	if count > 0:

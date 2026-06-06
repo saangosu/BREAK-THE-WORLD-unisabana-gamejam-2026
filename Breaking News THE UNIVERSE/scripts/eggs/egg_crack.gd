@@ -83,7 +83,7 @@ func create_shreds(texture : String) -> void:
 	sprite.scale = $Sprite.scale / 2
 	sprite.modulate = $Sprite.modulate
 	shred.global_position = global_position
-	get_tree().current_scene.add_child(shred)
+	get_tree().current_scene.call_deferred("add_child", shred)
 
 func switch_can_select(can : bool, egg_name : String) -> void:
 	if name != egg_name && impacts < 3:
