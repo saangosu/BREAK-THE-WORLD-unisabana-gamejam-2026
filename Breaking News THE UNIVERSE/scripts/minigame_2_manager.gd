@@ -1,4 +1,4 @@
-extends Node2D
+extends Minigame
 
 var black_hole_scene = preload("res://scenes/minigame_2/black_hole.tscn")
 var asteroid_scene = preload("res://scenes/minigame_2/asteroid.tscn")

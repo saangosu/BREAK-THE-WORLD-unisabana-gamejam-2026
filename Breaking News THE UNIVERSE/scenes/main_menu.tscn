@@ -1,3 +1,45 @@
 [gd_scene format=3 uid="uid://dpxtl421cggdt"]
 
+[ext_resource type="Script" uid="uid://g8fdvwylxuar" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
 [node name="MainMenu" type="Node2D" unique_id=2019149323]
+script = ExtResource("1_l6cm7")
+
+[node name="Control" type="Control" parent="." unique_id=1672252317]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="Control" unique_id=1119676122]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 247.0
+offset_right = 198.0
+offset_bottom = 372.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_font_sizes/font_size = 42
+text = "START GAME"
+
+[node name="QuitButton" type="Button" parent="Control" unique_id=1746505151]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 655.0
+offset_right = 198.0
+offset_bottom = 780.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_font_sizes/font_size = 42
+text = "QUIT GAME"
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

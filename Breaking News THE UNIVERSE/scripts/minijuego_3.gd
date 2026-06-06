@@ -1,4 +1,4 @@
-extends Node2D
+extends Minigame
 
 # Los 5 colores posibles
 var colores = ["Rojo", "Azul", "Verde", "Amarillo", "Morado"]
