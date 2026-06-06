@@ -11,11 +11,7 @@ config_version=5
 [application]
 
 config/name="Breaking News: THE UNIVERSE"
-<<<<<<< HEAD
-run/main_scene="res://scenes/main_scene.tscn"
-=======
 run/main_scene="uid://b4slym3je1a5o"
->>>>>>> a9c5df7163d7ec1824bfbc57bdcc739edd98bcd2
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
