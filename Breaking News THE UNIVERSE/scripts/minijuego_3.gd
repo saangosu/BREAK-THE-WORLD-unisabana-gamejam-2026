@@ -46,7 +46,7 @@ func cable_cortado(color: String):
 
 func nivel_superado():
 	$Label.text = "🎉 ¡NIVEL SUPERADO!"
-	# Aquí luego puedes cambiar de escena o mostrar pantalla de victoria
+	completed.emit()
 
 func nivel_fallido():
 	$Label.text = "💥 ¡FALLASTE! Reiniciando..."

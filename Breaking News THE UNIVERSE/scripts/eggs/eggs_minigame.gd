@@ -1,8 +1,5 @@
-extends Node2D
+extends Minigame
 class_name EggsLevel
-
-# signals
-signal completed
 
 # OnReadies
 @onready var egg_1 = $Egg1
