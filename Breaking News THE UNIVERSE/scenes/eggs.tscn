@@ -1,13 +1,28 @@
 [gd_scene format=3 uid="uid://b7q0fhesdjkqb"]
 
+[ext_resource type="Script" uid="uid://c1k0adqm5sn50" path="res://scenes/eggs_minigame.gd" id="1_187s8"]
 [ext_resource type="Texture2D" uid="uid://ck4iw8agiqbq" path="res://textures/placeholders/half circle filled.png" id="1_437cf"]
-[ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="2_187s8"]
 [ext_resource type="Script" uid="uid://cherqsqhmellw" path="res://scripts/egg_crack.gd" id="3_1bi41"]
+[ext_resource type="Texture2D" uid="uid://14yqp2irvoow" path="res://textures/art/egg_uncracked.png" id="4_187s8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_axssh"]
-radius = 62.1289
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_437cf"]
+radius = 4.1666718
+height = 125.33334
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_187s8"]
+radius = 5.0000076
+height = 125.000015
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bi41"]
+radius = 71.02692
+height = 202.96313
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_axssh"]
+radius = 61.481995
+height = 189.47266
 
 [node name="Eggs" type="Node2D" unique_id=250201289]
+script = ExtResource("1_187s8")
 
 [node name="Bowl" type="Sprite2D" parent="." unique_id=229170384]
 modulate = Color(0.42872298, 0.3166794, 0, 1)
@@ -16,36 +31,107 @@ rotation = -0.7853982
 scale = Vector2(6, 6)
 texture = ExtResource("1_437cf")
 
-[node name="Egg1" type="Sprite2D" parent="." unique_id=1227246762]
+[node name="Collider" type="StaticBody2D" parent="Bowl" unique_id=1063896869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bowl/Collider" unique_id=246550476]
+position = Vector2(0.35355377, -0.58927155)
+rotation = 2.3561945
+shape = SubResource("CapsuleShape2D_437cf")
+
+[node name="Hitbox" type="Area2D" parent="Bowl" unique_id=2060276344]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bowl/Hitbox" unique_id=780539353]
+position = Vector2(0.35355377, -0.5892792)
+rotation = 2.3561945
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CapsuleShape2D_187s8")
+
+[node name="Egg1" type="RigidBody2D" parent="." unique_id=630559669]
 modulate = Color(0.9273675, 0.8930078, 0.5357818, 1)
-position = Vector2(1705, 864)
-texture = ExtResource("2_187s8")
+position = Vector2(1547, 726)
+rotation = -0.49741885
+collision_layer = 2
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("3_1bi41")
 
-[node name="Hitbox" type="Area2D" parent="Egg1" unique_id=559654211]
-position = Vector2(0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg1/Hitbox" unique_id=968851204]
-shape = SubResource("CircleShape2D_axssh")
-
-[node name="Egg2" type="Sprite2D" parent="." unique_id=1168734311]
+[node name="Complete" type="Sprite2D" parent="Egg1" unique_id=296713680]
 modulate = Color(0.8997264, 0.5783708, 0.95728594, 1)
-position = Vector2(1563, 914)
-texture = ExtResource("2_187s8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_187s8")
 
-[node name="Hitbox" type="Area2D" parent="Egg2" unique_id=1628347654]
-position = Vector2(0, 1)
+[node name="Hurtbox" type="Area2D" parent="Egg1" unique_id=1084660015]
+position = Vector2(-0.07550049, 2.234793)
+scale = Vector2(1.0000001, 1.0000001)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg2/Hitbox" unique_id=2087438526]
-shape = SubResource("CircleShape2D_axssh")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg1/Hurtbox" unique_id=2012674878]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_1bi41")
 
-[node name="Egg3" type="Sprite2D" parent="." unique_id=1826876205]
-modulate = Color(0.13559651, 0.71318173, 0.84726167, 1)
-position = Vector2(1610, 746)
-texture = ExtResource("2_187s8")
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Egg1" unique_id=1815493839]
 
-[node name="Hitbox" type="Area2D" parent="Egg3" unique_id=1616215170]
-position = Vector2(0, 1)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg1" unique_id=1643742409]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_axssh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg3/Hitbox" unique_id=417231324]
-shape = SubResource("CircleShape2D_axssh")
+[node name="Egg2" type="RigidBody2D" parent="." unique_id=2042956261]
+modulate = Color(0.9056456, 0.8472634, 0.9906916, 1)
+position = Vector2(1776, 760)
+rotation = -0.49741885
+collision_layer = 2
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("3_1bi41")
+
+[node name="Hurtbox" type="Area2D" parent="Egg2" unique_id=236867055]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg2/Hurtbox" unique_id=1350462944]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_1bi41")
+
+[node name="Complete" type="Sprite2D" parent="Egg2" unique_id=905132480]
+modulate = Color(0.8997264, 0.5783708, 0.95728594, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_187s8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Egg2" unique_id=80578202]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg2" unique_id=1761063128]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_axssh")
+
+[node name="Egg3" type="RigidBody2D" parent="." unique_id=895048978]
+modulate = Color(0.6500431, 0.9304316, 1, 1)
+position = Vector2(1647, 901)
+rotation = -0.49741885
+collision_layer = 2
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("3_1bi41")
+
+[node name="Hurtbox" type="Area2D" parent="Egg3" unique_id=542623557]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg3/Hurtbox" unique_id=1354244779]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_1bi41")
+
+[node name="Complete" type="Sprite2D" parent="Egg3" unique_id=151816917]
+modulate = Color(0.8997264, 0.5783708, 0.95728594, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_187s8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Egg3" unique_id=33624495]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Egg3" unique_id=1516880987]
+position = Vector2(5.849717, 12.279282)
+rotation = -0.12391838
+shape = SubResource("CapsuleShape2D_axssh")
+
+[connection signal="screen_exited" from="Egg1/VisibleOnScreenNotifier2D" to="Egg1" method="freeze"]
+[connection signal="screen_exited" from="Egg2/VisibleOnScreenNotifier2D" to="Egg2" method="freeze"]
+[connection signal="screen_exited" from="Egg3/VisibleOnScreenNotifier2D" to="Egg3" method="freeze"]
