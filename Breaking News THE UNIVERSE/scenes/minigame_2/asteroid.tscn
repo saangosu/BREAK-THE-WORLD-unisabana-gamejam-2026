@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3]
-[ext_resource type="Script" path="res://scenes/minigame_2/asteroid.gd" id="1_ast"]
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bnktwu72n3sd8" path="res://scripts/asteroid.gd" id="1_ast"]
 [sub_resource type="CircleShape2D" id="CircleShape2D_ast"]
 radius = 30.0
 

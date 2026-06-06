@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3]
-[ext_resource type="Script" path="res://scenes/minigame_2/planet.gd" id="1_pla"]
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://rq5qva7wbslg" path="res://scripts/planet.gd" id="1_pla"]
 [sub_resource type="CircleShape2D" id="CircleShape2D_pla"]
 radius = 100.0
 

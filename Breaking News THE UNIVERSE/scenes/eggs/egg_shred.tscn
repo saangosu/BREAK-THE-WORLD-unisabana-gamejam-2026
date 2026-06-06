@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://44goiwbwusfi"]
+
+[ext_resource type="Script" uid="uid://ccaiv53gh67pe" path="res://scripts/eggs/egg_shred.gd" id="1_4di7w"]
+[ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="2_gt5om"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pneak"]
+
+[node name="EggShred" type="RigidBody2D" unique_id=1056017599]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 5.0
+script = ExtResource("1_4di7w")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1155298951]
+texture = ExtResource("2_gt5om")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1035041209]
+shape = SubResource("CircleShape2D_pneak")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1326932830]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

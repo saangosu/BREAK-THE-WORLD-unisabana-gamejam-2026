@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3]
-[ext_resource type="Script" path="res://scenes/minigame_2/black_hole.gd" id="1_bh"]
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://v22welvxill6" path="res://scripts/black_hole.gd" id="1_bh"]
 [sub_resource type="CircleShape2D" id="CircleShape2D_bh"]
 radius = 400.0
 
