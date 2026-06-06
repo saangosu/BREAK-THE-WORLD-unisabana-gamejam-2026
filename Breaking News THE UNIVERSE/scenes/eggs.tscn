@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b7q0fhesdjkqb"]
+
+[ext_resource type="Texture2D" uid="uid://ck4iw8agiqbq" path="res://textures/placeholders/half circle filled.png" id="1_437cf"]
+[ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="2_187s8"]
+[ext_resource type="Script" uid="uid://cherqsqhmellw" path="res://scripts/egg_crack.gd" id="3_1bi41"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axssh"]
+radius = 62.1289
+
+[node name="Eggs" type="Node2D" unique_id=250201289]
+
+[node name="Bowl" type="Sprite2D" parent="." unique_id=229170384]
+modulate = Color(0.42872298, 0.3166794, 0, 1)
+position = Vector2(960.00006, 715.00006)
+rotation = -0.7853982
+scale = Vector2(6, 6)
+texture = ExtResource("1_437cf")
+
+[node name="Egg1" type="Sprite2D" parent="." unique_id=1227246762]
+modulate = Color(0.9273675, 0.8930078, 0.5357818, 1)
+position = Vector2(1705, 864)
+texture = ExtResource("2_187s8")
+script = ExtResource("3_1bi41")
+
+[node name="Hitbox" type="Area2D" parent="Egg1" unique_id=559654211]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg1/Hitbox" unique_id=968851204]
+shape = SubResource("CircleShape2D_axssh")
+
+[node name="Egg2" type="Sprite2D" parent="." unique_id=1168734311]
+modulate = Color(0.8997264, 0.5783708, 0.95728594, 1)
+position = Vector2(1563, 914)
+texture = ExtResource("2_187s8")
+
+[node name="Hitbox" type="Area2D" parent="Egg2" unique_id=1628347654]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg2/Hitbox" unique_id=2087438526]
+shape = SubResource("CircleShape2D_axssh")
+
+[node name="Egg3" type="Sprite2D" parent="." unique_id=1826876205]
+modulate = Color(0.13559651, 0.71318173, 0.84726167, 1)
+position = Vector2(1610, 746)
+texture = ExtResource("2_187s8")
+
+[node name="Hitbox" type="Area2D" parent="Egg3" unique_id=1616215170]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg3/Hitbox" unique_id=417231324]
+shape = SubResource("CircleShape2D_axssh")
