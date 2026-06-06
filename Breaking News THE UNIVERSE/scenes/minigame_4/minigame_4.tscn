@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bal6wskr06ea1"]
+
+[ext_resource type="Script" uid="uid://bncrtca5cs55o" path="res://scripts/minigame_4/minigame_4.gd" id="1_m4"]
+[ext_resource type="Script" uid="uid://r1mmywl8pv3n" path="res://scripts/minigame_4/knob.gd" id="2_knb"]
+
+[node name="Minigame4" type="Node2D" unique_id=161525883]
+script = ExtResource("1_m4")
+
+[node name="Background" type="ColorRect" parent="." unique_id=124304619]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="Planet" type="Polygon2D" parent="." unique_id=1172970963]
+position = Vector2(960, 250)
+color = Color(0.8, 0.2, 0.2, 1)
+polygon = PackedVector2Array(150, 0, 147.116, 29.2638, 138.582, 57.4025, 124.63, 83.3514, 106.066, 106.066, 83.3514, 124.63, 57.4025, 138.582, 29.2638, 147.116, 0, 150, -29.2638, 147.116, -57.4025, 138.582, -83.3514, 124.63, -106.066, 106.066, -124.63, 83.3514, -138.582, 57.4025, -147.116, 29.2638, -150, -1.31134e-06, -147.116, -29.2638, -138.582, -57.4025, -124.63, -83.3514, -106.066, -106.066, -83.3514, -124.63, -57.4025, -138.582, -29.2638, -147.116, 0, -150, 29.2638, -147.116, 57.4025, -138.582, 83.3514, -124.63, 106.066, -106.066, 124.63, -83.3514, 138.582, -57.4025, 147.116, -29.2638)
+
+[node name="TargetWave" type="Line2D" parent="." unique_id=1896961605]
+position = Vector2(960, 550)
+
+[node name="PlayerWave" type="Line2D" parent="." unique_id=813977682]
+position = Vector2(960, 550)
+
+[node name="KnobFreq" type="Control" parent="." unique_id=1409786609]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 600.0
+offset_top = 750.0
+offset_right = 800.0
+offset_bottom = 950.0
+script = ExtResource("2_knb")
+
+[node name="KnobAmp" type="Control" parent="." unique_id=143609267]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1100.0
+offset_top = 750.0
+offset_right = 1300.0
+offset_bottom = 950.0
+script = ExtResource("2_knb")
+
+[node name="OKButton" type="Button" parent="." unique_id=144942119]
+offset_left = 860.0
+offset_top = 800.0
+offset_right = 1060.0
+offset_bottom = 880.0
+theme_override_font_sizes/font_size = 40
+text = "OK"

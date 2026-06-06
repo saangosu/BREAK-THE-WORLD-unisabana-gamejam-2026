@@ -1,0 +1,116 @@
+extends Minigame
+
+@onready var target_wave = $TargetWave
+@onready var player_wave = $PlayerWave
+@onready var planet = $Planet
+@onready var ok_button = $OKButton
+
+var target_frequency : float
+var player_frequency : float
+var target_amplitude : float
+var player_amplitude : float
+
+var match_tolerance_freq = 0.05
+var match_tolerance_amp = 20.0
+var game_over = false
+
+func _ready():
+	target_frequency = randf_range(0.2, 0.8)
+	target_amplitude = randf_range(50.0, 200.0)
+	
+	player_frequency = 0.5
+	player_amplitude = 125.0
+	
+	update_wave(target_wave, target_frequency, target_amplitude, Color(1, 0, 0, 0.5))
+	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
+	
+	var knob_freq = $KnobFreq
+	knob_freq.value_changed.connect(_on_knob_freq_changed)
+	
+	var knob_amp = $KnobAmp
+	knob_amp.value_changed.connect(_on_knob_amp_changed)
+	
+	ok_button.pressed.connect(_on_ok_pressed)
+
+func _on_knob_freq_changed(value):
+	if game_over: return
+	player_frequency = lerp(0.1, 0.9, value)
+	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
+
+func _on_knob_amp_changed(value):
+	if game_over: return
+	player_amplitude = lerp(50.0, 200.0, value)
+	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
+
+func _on_ok_pressed():
+	if game_over: return
+	
+	var freq_match = abs(target_frequency - player_frequency) < match_tolerance_freq
+	var amp_match = abs(target_amplitude - player_amplitude) < match_tolerance_amp
+	
+	if freq_match and amp_match:
+		win_game()
+	else:
+		emit_signal("life_lost")
+		# Agitar el boton o dar feedback visual
+		var tween = create_tween()
+		var original_pos = ok_button.position
+		tween.tween_property(ok_button, "position", original_pos + Vector2(10, 0), 0.05)
+		tween.tween_property(ok_button, "position", original_pos - Vector2(10, 0), 0.05)
+		tween.tween_property(ok_button, "position", original_pos, 0.05)
+
+func update_wave(line: Line2D, freq: float, amp: float, color: Color):
+	line.clear_points()
+	line.default_color = color
+	line.width = 10.0
+	
+	var points = 100
+	var width = 800.0
+	
+	for i in range(points):
+		var x = (i / float(points - 1)) * width - (width / 2.0)
+		var t = float(i) / points
+		var y = sin(t * TAU * (freq * 10.0)) * amp
+		line.add_point(Vector2(x, y))
+
+var time_passed = 0.0
+func _process(delta):
+	if game_over: return
+	
+	time_passed += delta * 0.5
+	animate_wave(target_wave, target_frequency, target_amplitude)
+	animate_wave(player_wave, player_frequency, player_amplitude)
+
+func animate_wave(line: Line2D, freq: float, amp: float):
+	var points = 100
+	var width = 800.0
+	
+	for i in range(points):
+		var x = (i / float(points - 1)) * width - (width / 2.0)
+		var t = float(i) / points
+		var y = sin(t * TAU * (freq * 10.0) + time_passed * 10.0) * amp
+		line.set_point_position(i, Vector2(x, y))
+
+func win_game():
+	game_over = true
+	emit_signal("point_scored")
+	
+	# "Explotar" el planeta
+	planet.visible = false
+	var particles = CPUParticles2D.new()
+	particles.position = planet.position
+	particles.emitting = true
+	particles.one_shot = true
+	particles.amount = 50
+	particles.explosiveness = 1.0
+	particles.spread = 180.0
+	particles.gravity = Vector2(0, 0)
+	particles.initial_velocity_min = 200.0
+	particles.initial_velocity_max = 500.0
+	particles.scale_amount_min = 10.0
+	particles.scale_amount_max = 30.0
+	particles.color = Color(0.8, 0.2, 0.2)
+	add_child(particles)
+	
+	await get_tree().create_timer(1.5).timeout
+	emit_signal("completed")

@@ -13,11 +13,8 @@ const winning_goal = 3
 var level_score = 0
 var eggs : Array = []
 
-var current_time = 20.0
 var game_over = false
 
-var timer_label: Label
-var lives_label: Label
 var status_label: Label
 
 # built in
@@ -34,21 +31,6 @@ func setup_ui():
 	var canvas = CanvasLayer.new()
 	add_child(canvas)
 	
-	timer_label = Label.new()
-	timer_label.position = Vector2(50, 50)
-	timer_label.add_theme_font_size_override("font_size", 40)
-	canvas.add_child(timer_label)
-	
-	lives_label = Label.new()
-	lives_label.position = Vector2(1650, 50)
-	lives_label.add_theme_font_size_override("font_size", 40)
-	var gm = get_parent()
-	if "current_lives" in gm:
-		lives_label.text = "Vidas: %d" % gm.current_lives
-	else:
-		lives_label.text = "Vidas: 3"
-	canvas.add_child(lives_label)
-	
 	status_label = Label.new()
 	status_label.position = Vector2(0, 500)
 	status_label.size = Vector2(1920, 200)
@@ -56,18 +38,6 @@ func setup_ui():
 	status_label.add_theme_font_size_override("font_size", 100)
 	status_label.text = ""
 	canvas.add_child(status_label)
-
-func _process(delta):
-	if game_over:
-		return
-		
-	current_time -= delta
-	if current_time <= 0:
-		current_time = 0
-		timer_label.text = "Tiempo: %.1f" % current_time
-		win_game("¡SE ACABÓ EL TIEMPO!")
-	
-	timer_label.text = "Tiempo: %.1f" % current_time
 
 # functions
 func egg_selected(selected : bool, selected_egg : String) -> void:
