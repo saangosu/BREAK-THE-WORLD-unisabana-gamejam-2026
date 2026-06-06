@@ -2,8 +2,8 @@ extends StaticBody2D
 
 signal planet_destroyed(pos)
 
-var max_hp = 5
-var current_hp = 5
+var max_hp = 1
+var current_hp = 1
 var move_speed = 200.0
 var direction = 1
 

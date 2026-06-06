@@ -2,6 +2,7 @@ extends RigidBody2D
 
 signal asteroid_launched
 signal asteroid_destroyed
+signal hit_planet
 
 var dragging = false
 var start_pos = Vector2()
@@ -46,6 +47,7 @@ func launch_asteroid():
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage()
+		emit_signal("hit_planet")
 	emit_signal("asteroid_destroyed")
 	queue_free()
 
