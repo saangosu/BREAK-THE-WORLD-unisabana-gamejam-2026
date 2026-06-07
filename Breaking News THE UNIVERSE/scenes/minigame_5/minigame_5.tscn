@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbssfv6bu8jwo" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bvlan7jb7dn1" path="res://textures/art/Luna.png" id="2_moon"]
-[ext_resource type="Texture2D" uid="uid://t5sa5k318cid" path="res://assets/backgrounds/fondo_6.png" id="bg_texture"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_7.png" id="bg_texture"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
