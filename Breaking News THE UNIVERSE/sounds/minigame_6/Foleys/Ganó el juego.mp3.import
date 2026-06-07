@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ceulr52yvdb3k"
+path="res://.godot/imported/Ganó el juego.mp3-47dd5dbe7c3d5adb0917f6fc9746933e.mp3str"
+
+[deps]
+
+source_file="res://sounds/minigame_6/Foleys/Ganó el juego.mp3"
+dest_files=["res://.godot/imported/Ganó el juego.mp3-47dd5dbe7c3d5adb0917f6fc9746933e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
