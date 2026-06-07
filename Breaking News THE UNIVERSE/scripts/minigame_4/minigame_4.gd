@@ -9,6 +9,7 @@ const sfx_frequency = preload("res://sounds/minigame_4/Frecuencia/frecuencia.mp3
 const sfx_impact = preload("res://sounds/minigame_4/impacto_de_roca/impacto_de_roca.mp3")
 const sfx_win = preload("res://sounds/minigame_4/Foleys/gano.mp3")
 const sfx_lose = preload("res://sounds/minigame_4/Foleys/perdiste.mp3")
+const sfx_click = preload("res://sounds/minigame_4/click/click.mp3")
 
 var target_frequency : float
 var player_frequency : float
@@ -73,6 +74,8 @@ func _on_knob_amp_changed(value):
 
 func _on_ok_pressed():
 	if game_over: return
+	
+	play_sound(sfx_click, -6.0)
 	
 	var freq_match = abs(target_frequency - player_frequency) < match_tolerance_freq
 	var amp_match = abs(target_amplitude - player_amplitude) < match_tolerance_amp
