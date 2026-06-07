@@ -1,0 +1,94 @@
+OBJETIVO
+Cumplir el reto de cada minijuego antes de que se acabe el tiempo. Empiezas con 10 segundos. Tras cada pantalla, el tiempo se reduce. Tienes 3 vidas.
+MINIJUEGOS
+1. Romper planetas como huevos (3 planetas) (clickeas en el huevo y le pegas contra un recipiente hasta que se rompa) - SALEM
+GRÁFICOS
+1. Huevoplaneta
+Completo
+Roto
+Agrietado
+2. Núcleos (clara y yema)
+2. Tazón
+vacio
+¼
+½
+lleno
+3. Fondo
+incio del juego (chill)
+mid y end game (tensionante)
+SONOROS
+Huevoplaneta
+Completo ( no requiere sonido) 
+Roto (sonido de huevo haciendo crack) 
+Agrietado ( sonido de huevo abriendose un poco) 
+ 2. Tazón 
+vacio ( no tiene sonido) b. ¼ (sonido de viscosidad  cayendo poco ) c. ½ (sonido de viscosidad cayendo medio) d. lleno (sonido de viscosidad cayendo lleno) 
+3. Fondo: 
+música de fondo 
+foleys de correcto o incorrecto 
+2. Lanzar asteroides al planeta (5 impactos) (clickeas en un asteroide y arrastras el mouse hasta el planeta) (cada q se rompe un planeta se crea un agujero negro y esto afecta la trallectoria del siguiente asteroide)
+GRÁFICOS
+Asteroides
+Planeta
+Completo
+Roto
+Agrietado
+agujero negro
+Fondo
+Animación de impacto
+animacion de la aparicion de agujero negro
+SONOROS
+Foley de tirar el asteroide 
+Planeta 
+Completo ( sonido como “boing” como de rebote del huevo) 
+Roto (sonido de huevo haciendo crack) 
+Agrietado ( sonido de huevo abriendose un poco) 
+agujero negro (sonido de viento fuerte) 
+3. Cortar enlaces químicos para que explote el planeta (clickear en el cable que te indique la pantalla)
+GRÁFICOS
+Bolitas de elementos (que sean hidrógenos jsjs)
+Bolitas de oxígenos para cuando pierdas (se generan moléculas de agua)
+Líneas de enlaces de colores
+Animación del planeta explotando
+Animación del planeta floreciendo
+SONOROS
+sonido de burbujas 
+sonido de electricidad
+Foley de explosión 
+4. Sincronizar una onda espacial con la resonancia del planeta para que se rompa como una copa en la ópera (dial, como en amogus)
+GRÁFICOS
+Planeta
+Dial y onda (creo que las ondas las puedo hacer con shaders. me toca mirar, no creo que sea tan complicado. :p)
+Animación planeta rompiéndose (puede ser la textura del planeta cortada en pedacitos)
+SONOROS
+No requiere sonido 
+Sonido de frecuencia 
+Sonido de algo rompiendo (como el “crack”) 
+5. Rallar lunas en queso para un spaggethi galáctico (Clickeas en el planeta y mueves el mouse hacia arriba y hacia abajo muy rápido)
+GRÁFICOS
+Luna
+Rallador
+Spaghetti de estrellas
+SONOROS
+No requiere sonido 
+Sonido de rallar queso 
+Sonido de que esta caliente 
+6. Golf con planetas (dar click en el punto justo de una barra)
+Palo de golf
+Planeta
+Agujero negro
+SONOROS
+Sonido de movimiento 
+Sonido de cuando se le pega a la pelota 
+Sonido de viento fuerte 
+7. Batear satélites de vuelta a la tierra (4 satélites) (dar click cuando el satélite entra en el área de bateo)
+GRÁFICOS
+Bate
+Satélite intacto
+Satélite abollado
+Animación de impacto (puede ser la misma del minijuego de los asteroides)
+SONOROS
+Sonido de movimiento de bate 
+Sonido de golpe de pelota 
+Sonido de golpe de pelota 
+Sonido de boom 
