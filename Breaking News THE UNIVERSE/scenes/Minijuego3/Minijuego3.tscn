@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dwekkcnh14rkg"]
+
+[ext_resource type="Script" uid="uid://hq7ek2bpe1g8" path="res://scripts/minijuego_3.gd" id="1_7sqbv"]
+[ext_resource type="Texture2D" uid="uid://bsk8bbstpi67t" path="res://textures/aaa/Rojo Bien-Photoroom.png" id="2_mbhwq"]
+[ext_resource type="Texture2D" uid="uid://b8en087qswnx8" path="res://textures/aaa/Rojo Mal-Photoroom.png" id="3_g1fac"]
+[ext_resource type="Texture2D" uid="uid://o3s5583j6sqx" path="res://textures/aaa/Azul Bien-Photoroom.png" id="4_45ktp"]
+[ext_resource type="Texture2D" uid="uid://d2odujilot6gs" path="res://textures/aaa/Azul Mal-Photoroom.png" id="5_g5k8w"]
+[ext_resource type="Texture2D" uid="uid://bg80ot4oubtuc" path="res://textures/aaa/Verde bien-Photoroom.png" id="6_i6gxc"]
+[ext_resource type="Texture2D" uid="uid://dp2i0fmb3gkui" path="res://textures/aaa/Verde Mal-Photoroom.png" id="7_rmnnm"]
+[ext_resource type="Texture2D" uid="uid://ckju88l4yftag" path="res://textures/aaa/Amarillo Bien-Photoroom.png" id="8_yg6hn"]
+[ext_resource type="Texture2D" uid="uid://d2smuk8kuve31" path="res://textures/aaa/Amarillo Mal-Photoroom.png" id="9_46rie"]
+[ext_resource type="Texture2D" uid="uid://00vmpatsk8cq" path="res://textures/aaa/Morao Bien-Photoroom.png" id="10_pqjj3"]
+[ext_resource type="Texture2D" uid="uid://ehckr8sgg1ya" path="res://textures/aaa/Morao Mal-Photoroom.png" id="11_lyjif"]
+
+[node name="Minijuego3" type="Node2D" unique_id=1521550332]
+script = ExtResource("1_7sqbv")
+
+[node name="Rojo" type="TextureButton" parent="." unique_id=1261139318]
+offset_left = 113.0
+offset_top = 194.0
+offset_right = 517.0
+offset_bottom = 466.0
+texture_normal = ExtResource("2_mbhwq")
+texture_pressed = ExtResource("3_g1fac")
+
+[node name="Azul" type="TextureButton" parent="." unique_id=1359780374]
+offset_left = 1468.0
+offset_top = 197.0
+offset_right = 1841.0
+offset_bottom = 484.0
+texture_normal = ExtResource("4_45ktp")
+texture_pressed = ExtResource("5_g5k8w")
+
+[node name="Verde" type="TextureButton" parent="." unique_id=75451823]
+offset_left = 720.0
+offset_top = 26.0
+offset_right = 1100.0
+offset_bottom = 311.0
+texture_normal = ExtResource("6_i6gxc")
+texture_pressed = ExtResource("7_rmnnm")
+
+[node name="Amarillo" type="TextureButton" parent="." unique_id=1050194097]
+custom_minimum_size = Vector2(640, 450)
+offset_left = 399.0
+offset_top = 628.0
+offset_right = 1039.0
+offset_bottom = 1078.0
+texture_normal = ExtResource("8_yg6hn")
+texture_pressed = ExtResource("9_46rie")
+ignore_texture_size = true
+
+[node name="Morado" type="TextureButton" parent="." unique_id=485772522]
+offset_left = 1144.0
+offset_top = 648.0
+offset_right = 1554.0
+offset_bottom = 944.0
+texture_normal = ExtResource("10_pqjj3")
+texture_pressed = ExtResource("11_lyjif")
+
+[node name="Label" type="Label" parent="." unique_id=959062814]
+offset_left = 867.0
+offset_top = 511.0
+offset_right = 954.0
+offset_bottom = 542.0
+text = "Cargando"
+
+[connection signal="pressed" from="Rojo" to="." method="_on_rojo_pressed"]
+[connection signal="pressed" from="Azul" to="." method="_on_azul_pressed"]
+[connection signal="pressed" from="Verde" to="." method="_on_verde_pressed"]
+[connection signal="pressed" from="Amarillo" to="." method="_on_amarillo_pressed"]
+[connection signal="pressed" from="Morado" to="." method="_on_morado_pressed"]
