@@ -16,8 +16,8 @@ var player_frequency : float
 var target_amplitude : float
 var player_amplitude : float
 
-var match_tolerance_freq = 0.05
-var match_tolerance_amp = 20.0
+var match_tolerance_freq = 0.02
+var match_tolerance_amp = 5.0
 var game_over = false
 
 var frequency_player : AudioStreamPlayer

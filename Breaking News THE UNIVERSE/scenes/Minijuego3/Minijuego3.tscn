@@ -12,8 +12,19 @@
 [ext_resource type="Texture2D" uid="uid://00vmpatsk8cq" path="res://textures/aaa/Morao Bien-Photoroom.png" id="10_pqjj3"]
 [ext_resource type="Texture2D" uid="uid://ehckr8sgg1ya" path="res://textures/aaa/Morao Mal-Photoroom.png" id="11_lyjif"]
 
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_6.png" id="bg_tex"]
+
 [node name="Minijuego3" type="Node2D" unique_id=1521550332]
 script = ExtResource("1_7sqbv")
+
+[node name="Background" type="TextureRect" parent="." unique_id=999999999]
+z_index = -10
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("bg_tex")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Rojo" type="TextureButton" parent="." unique_id=1261139318]
 offset_left = 113.0
