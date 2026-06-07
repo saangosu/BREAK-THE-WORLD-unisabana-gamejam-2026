@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bncrtca5cs55o" path="res://scripts/minigame_4/minigame_4.gd" id="1_m4"]
 [ext_resource type="Script" uid="uid://r1mmywl8pv3n" path="res://scripts/minigame_4/knob.gd" id="2_knb"]
-[ext_resource type="Texture2D" uid="uid://bivqvf3lsjqrd" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
+[ext_resource type="Texture2D" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/minigame_4/sonido.png" id="radio_tex"]
+[ext_resource type="Texture2D" uid="uid://bx4r0118fkax5" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
 
 [node name="Minigame4" type="Node2D" unique_id=161525883]
 script = ExtResource("1_m4")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1041044625]
+modulate = Color(0.5, 0.5, 0.5, 1)
 z_index = -10
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -16,12 +18,15 @@ mouse_filter = 2
 texture = ExtResource("bg_texture")
 expand_mode = 1
 stretch_mode = 6
-modulate = Color(0.5, 0.5, 0.5, 1)
 
 [node name="Planet" type="Sprite2D" parent="." unique_id=1172970963]
-position = Vector2(960, 250)
+position = Vector2(960.00006, 310)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_tex")
+
+[node name="RadioConsole" type="Sprite2D" parent="."]
+position = Vector2(960, 650)
+texture = ExtResource("radio_tex")
 
 [node name="TargetWave" type="Line2D" parent="." unique_id=1896961605]
 position = Vector2(960, 550)

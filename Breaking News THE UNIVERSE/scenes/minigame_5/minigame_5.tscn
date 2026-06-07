@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://minigame5"]
 
-[ext_resource type="Script" uid="uid://cbssfv6bu8jwo" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bvlan7jb7dn1" path="res://textures/art/Luna.png" id="2_moon"]
-[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_7.png" id="bg_texture"]
+[ext_resource type="Texture2D" uid="uid://bmbcfgtxtgwaq" path="res://assets/backgrounds/fondo_7.png" id="bg_texture"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -11,7 +10,6 @@ bg_color = Color(0.2, 0.2, 0.2, 1)
 bg_color = Color(1, 0.8, 0.2, 1)
 
 [node name="Minigame5" type="Node2D" unique_id=1865876153]
-script = ExtResource("1_script")
 
 [node name="Background" type="TextureRect" parent="." unique_id=617871631]
 modulate = Color(0.5, 0.5, 0.5, 1)
