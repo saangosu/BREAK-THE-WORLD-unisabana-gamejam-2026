@@ -23,7 +23,7 @@ var frequency_player : AudioStreamPlayer
 
 func _ready():
 	target_frequency = randf_range(0.2, 0.8)
-	target_amplitude = randf_range(50.0, 200.0)
+	target_amplitude = randf_range(50.0, 110.0)
 	
 	player_frequency = 0.5
 	player_amplitude = 125.0
@@ -65,7 +65,7 @@ func _on_knob_freq_changed(value):
 
 func _on_knob_amp_changed(value):
 	if game_over: return
-	player_amplitude = lerp(50.0, 200.0, value)
+	player_amplitude = lerp(50.0, 110.0, value)
 	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
 	if frequency_player:
 		# Map knob amplitude to volume_db dynamically

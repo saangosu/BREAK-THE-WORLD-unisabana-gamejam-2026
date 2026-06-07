@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bncrtca5cs55o" path="res://scripts/minigame_4/minigame_4.gd" id="1_m4"]
 [ext_resource type="Script" uid="uid://r1mmywl8pv3n" path="res://scripts/minigame_4/knob.gd" id="2_knb"]
-[ext_resource type="Texture2D" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
-[ext_resource type="Texture2D" path="res://assets/sprites/minigame_4/sonido.png" id="radio_tex"]
+[ext_resource type="Texture2D" uid="uid://bivqvf3lsjqrd" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
 [ext_resource type="Texture2D" uid="uid://bx4r0118fkax5" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
+[ext_resource type="Texture2D" uid="uid://xibqlh2s0360" path="res://assets/sprites/minigame_4/sonido.png" id="radio_tex"]
 
 [node name="Minigame4" type="Node2D" unique_id=161525883]
 script = ExtResource("1_m4")
@@ -24,40 +24,45 @@ position = Vector2(960.00006, 310)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_tex")
 
-[node name="RadioConsole" type="Sprite2D" parent="."]
-position = Vector2(960, 650)
+[node name="RadioConsole" type="Sprite2D" parent="." unique_id=1470127687]
+position = Vector2(960, 750)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("radio_tex")
 
 [node name="TargetWave" type="Line2D" parent="." unique_id=1896961605]
-position = Vector2(960, 550)
+position = Vector2(960, 650)
 
 [node name="PlayerWave" type="Line2D" parent="." unique_id=813977682]
-position = Vector2(960, 550)
+position = Vector2(960, 650)
 
 [node name="KnobFreq" type="Control" parent="." unique_id=1409786609]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 600.0
-offset_top = 750.0
-offset_right = 800.0
-offset_bottom = 950.0
+offset_left = 593.0
+offset_top = 760.0
+offset_right = 793.0
+offset_bottom = 960.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(100, 100)
 script = ExtResource("2_knb")
 
 [node name="KnobAmp" type="Control" parent="." unique_id=143609267]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1100.0
-offset_top = 750.0
-offset_right = 1300.0
-offset_bottom = 950.0
+offset_left = 1128.0
+offset_top = 762.0
+offset_right = 1328.0
+offset_bottom = 962.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(100, 100)
 script = ExtResource("2_knb")
 
 [node name="OKButton" type="Button" parent="." unique_id=144942119]
-offset_left = 860.0
-offset_top = 800.0
-offset_right = 1060.0
-offset_bottom = 880.0
-theme_override_font_sizes/font_size = 40
-text = "OK"
+modulate = Color(1, 1, 1, 0)
+offset_left = 890.0
+offset_top = 840.0
+offset_right = 1030.0
+offset_bottom = 890.0
+flat = true
