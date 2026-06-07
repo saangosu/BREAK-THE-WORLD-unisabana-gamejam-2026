@@ -158,7 +158,7 @@ offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 60.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1336463096]
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1336463096]
 stream = ExtResource("6_7ki0c")
 volume_db = -6.0
 autoplay = true

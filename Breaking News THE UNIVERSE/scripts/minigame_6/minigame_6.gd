@@ -173,10 +173,12 @@ func _attempt_shot():
 		
 		# Play win foley sound
 		play_sound(sfx_win, -2.0)
+		$Music.stop()
 		
 		emit_signal("point_scored")
 		emit_signal("completed")
 	else:
+		stop_timer.emit()
 		if not power_perfect:
 			cursor_power.color = Color(1,0,0)
 		if not dir_perfect:
@@ -184,6 +186,7 @@ func _attempt_shot():
 		await tween.finished
 		
 		# Play lose foley sound
+		$Music.stop()
 		play_sound(sfx_lose, -2.0)
 		
 		emit_signal("lost")
