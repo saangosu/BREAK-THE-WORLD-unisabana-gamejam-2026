@@ -12,7 +12,7 @@ const max_lives := 3
 @onready var game_timer = $GameTimer
 
 # dictionaries
-var levels := ["res://scenes/eggs/eggs.tscn", "res://scenes/minigame_2/minigame_2.tscn", "res://scenes/Minijuego3.tscn", "res://scenes/minigame_4/minigame_4.tscn"]
+var levels := ["res://scenes/eggs/eggs.tscn", "res://scenes/minigame_2/minigame_2.tscn", "res://scenes/Minijuego3.tscn", "res://scenes/minigame_4/minigame_4.tscn", "res://scenes/minigame_6/minigame_6.tscn"]
 var user_interfaces := {"main_menu" : "res://scenes/ui/main_menu.tscn"}
 
 # arrays
