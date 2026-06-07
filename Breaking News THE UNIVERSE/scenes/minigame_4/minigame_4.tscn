@@ -2,16 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bncrtca5cs55o" path="res://scripts/minigame_4/minigame_4.gd" id="1_m4"]
 [ext_resource type="Script" uid="uid://r1mmywl8pv3n" path="res://scripts/minigame_4/knob.gd" id="2_knb"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bivqvf3lsjqrd" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
+=======
+[ext_resource type="Texture2D" uid="uid://minigame4planet" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
+
+>>>>>>> c8a9d1982796c35a6387698acdd65323b15361ce
 
 [node name="Minigame4" type="Node2D" unique_id=161525883]
 script = ExtResource("1_m4")
 
-[node name="Background" type="ColorRect" parent="." unique_id=124304619]
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
-color = Color(0.05, 0.05, 0.1, 1)
+texture = ExtResource("bg_texture")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.5, 0.5, 0.5, 1)
 
 [node name="Planet" type="Sprite2D" parent="." unique_id=1172970963]
 position = Vector2(960, 250)

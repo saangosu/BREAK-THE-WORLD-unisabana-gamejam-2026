@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dwekkcnh14rkg"]
+
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_3.png" id="bg_tex"]
+
+[ext_resource type="Script" uid="uid://hq7ek2bpe1g8" path="res://scripts/minijuego_3.gd" id="1_7pk5x"]
+
+[node name="Minijuego3" type="Node2D" unique_id=1521550332]
+script = ExtResource("1_7pk5x")
+
+[node name="Rojo" type="Button" parent="." unique_id=511657629]
+offset_left = 6.0
+offset_top = 38.0
+offset_right = 184.0
+offset_bottom = 110.0
+text = "Rojo
+"
+
+[node name="Azul" type="Button" parent="." unique_id=808605123]
+offset_left = 6.0
+offset_top = 117.0
+offset_right = 183.0
+offset_bottom = 232.0
+text = "Azul"
+
+[node name="Verde" type="Button" parent="." unique_id=757267032]
+offset_left = 6.0
+offset_top = 229.0
+offset_right = 183.0
+offset_bottom = 344.0
+text = "Verde
+"
+
+[node name="Amarillo" type="Button" parent="." unique_id=2102161401]
+offset_left = 6.0
+offset_top = 341.0
+offset_right = 183.0
+offset_bottom = 456.0
+text = "Amarillo
+"
+
+[node name="Morado" type="Button" parent="." unique_id=1299215266]
+offset_left = 6.0
+offset_top = 453.0
+offset_right = 183.0
+offset_bottom = 568.0
+text = "Morado
+"
+
+[node name="Label" type="Label" parent="." unique_id=959062814]
+offset_left = 465.0
+offset_top = 59.0
+offset_right = 552.0
+offset_bottom = 90.0
+text = "Cargando"
+
+[connection signal="pressed" from="Rojo" to="." method="_on_rojo_pressed"]
+[connection signal="pressed" from="Azul" to="." method="_on_azul_pressed"]
+[connection signal="pressed" from="Verde" to="." method="_on_verde_pressed"]
+[connection signal="pressed" from="Amarillo" to="." method="_on_amarillo_pressed"]
+[connection signal="pressed" from="Morado" to="." method="_on_morado_pressed"]

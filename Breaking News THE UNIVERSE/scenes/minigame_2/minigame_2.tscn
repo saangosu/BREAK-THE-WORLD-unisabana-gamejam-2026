@@ -1,20 +1,44 @@
 [gd_scene format=3 uid="uid://bs0wprtx8ukj3"]
 
 [ext_resource type="Script" uid="uid://bo5fkdx8lwap3" path="res://scripts/minigame_2_manager.gd" id="1_mgr"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_2.png" id="bg_texture"]
 
-[node name="Minigame2" type="Node2D" unique_id=1349073295]
+
+[node name="Minigame2" type="Node2D" unique_id=1696170510]
 script = ExtResource("1_mgr")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1637525103]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
-color = Color(0.1, 0.1, 0.2, 1)
+texture = ExtResource("bg_texture")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.5, 0.5, 0.5, 1)
 
-[node name="AsteroidSpawnPoint" type="Marker2D" parent="." unique_id=430254879]
-position = Vector2(300, 540)
+[node name="SlingshotBase" type="Node2D" parent="." unique_id=643290530]
 
-[node name="PlanetContainer" type="Node2D" parent="." unique_id=1658904438]
+[node name="BackBand" type="Line2D" parent="SlingshotBase" unique_id=1973366046]
+points = PackedVector2Array(1060, 780, 960, 850)
+width = 8.0
+default_color = Color(0.1, 0.7, 0.9, 1)
+
+[node name="MetalBase" type="Polygon2D" parent="SlingshotBase" unique_id=1109006821]
+color = Color(0.75, 0.8, 0.9, 1)
+polygon = PackedVector2Array(940, 1080, 980, 1080, 970, 900, 1080, 790, 1060, 780, 960, 870, 860, 780, 840, 790, 950, 900)
+
+[node name="MetalAccents" type="Polygon2D" parent="SlingshotBase" unique_id=245952361]
+color = Color(0.4, 0.45, 0.55, 1)
+polygon = PackedVector2Array(950, 1080, 970, 1080, 965, 910, 1060, 810, 1050, 800, 960, 880, 870, 800, 860, 810, 955, 910)
+
+[node name="FrontBand" type="Line2D" parent="SlingshotBase" unique_id=650860629]
+z_index = 2
+points = PackedVector2Array(860, 780, 960, 850)
+width = 8.0
+default_color = Color(0.2, 0.9, 1, 1)
+
+[node name="AsteroidSpawnPoint" type="Marker2D" parent="." unique_id=1976928829]
+position = Vector2(960, 850)
+
+[node name="PlanetContainer" type="Node2D" parent="." unique_id=718857676]
