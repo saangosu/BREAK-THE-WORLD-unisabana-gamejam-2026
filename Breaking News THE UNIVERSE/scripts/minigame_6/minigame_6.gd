@@ -88,8 +88,8 @@ func _lock_direction():
 func _attempt_shot():
 	current_state = State.DONE
 	
-	var power_perfect = abs(stored_power - 0.5) <= 0.08
-	var dir_perfect = abs(stored_direction - 0.5) <= 0.08
+	var power_perfect = abs(stored_power - 0.5) <= 0.20
+	var dir_perfect = abs(stored_direction - 0.5) <= 0.20
 	var is_win = power_perfect and dir_perfect
 	
 	# Calculate target
@@ -98,6 +98,10 @@ func _attempt_shot():
 	
 	var offset_x = (stored_direction - 0.5) * 1200.0
 	var target_x = planet.global_position.x + offset_x
+	
+	if is_win:
+		target_x = black_hole.global_position.x
+		target_y = black_hole.global_position.y
 	
 	var tween = create_tween()
 	var back_rotation = lerp(10.0, 90.0, stored_power)

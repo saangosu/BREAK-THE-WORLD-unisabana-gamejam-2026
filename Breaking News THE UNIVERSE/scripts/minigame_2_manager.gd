@@ -9,6 +9,12 @@ const sfx_lose = preload("res://sounds/minigame_2/Foleys/perdiste.mp3")
 
 @onready var spawn_point = $AsteroidSpawnPoint
 @onready var planet_container = $PlanetContainer
+@onready var front_band = $SlingshotBase/FrontBand
+@onready var back_band = $SlingshotBase/BackBand
+
+var band_left_prong = Vector2(860, 780)
+var band_right_prong = Vector2(1060, 780)
+var idle_center = Vector2(960, 850)
 
 var current_asteroid = null
 var planets_to_destroy = 3
@@ -22,7 +28,7 @@ func _ready():
 	setup_ui()
 	
 	# Centro inferior de la pantalla (1920x1080)
-	spawn_point.position = Vector2(960, 800)
+	spawn_point.position = Vector2(960, 850)
 	spawn_asteroid()
 	
 	# Spawneamos 3 planetas al mismo tiempo en diferentes alturas
@@ -184,3 +190,19 @@ func _on_timeout() -> void:
 		if BGM_player:
 			BGM_player.stop()
 		play_sound(sfx_lose, -2.0)
+
+func _process(delta):
+	if is_instance_valid(current_asteroid):
+		if not current_asteroid.launched:
+			front_band.visible = true
+			back_band.visible = true
+			# La goma persigue al asteroide
+			front_band.set_point_position(1, current_asteroid.global_position)
+			back_band.set_point_position(1, current_asteroid.global_position)
+		else:
+			# Si ya se lanzó, esconder bandas temporalmente
+			front_band.visible = false
+			back_band.visible = false
+	else:
+		front_band.visible = false
+		back_band.visible = false

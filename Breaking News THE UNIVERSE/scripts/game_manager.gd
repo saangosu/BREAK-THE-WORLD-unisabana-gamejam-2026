@@ -3,7 +3,7 @@ class_name GameManager
 
 # constants
 const max_time := 10.0
-const min_time := 1.0
+const min_time := 3.0
 const max_lives := 3
 
 # onreadies
@@ -61,8 +61,7 @@ func load_main_menu() -> void:
 
 func select_minigame() -> void:
 	if unplayed_levels.is_empty():
-		show_final_score()
-		return
+		unplayed_levels = levels.duplicate()
 		
 	var level_index = randi_range(0, unplayed_levels.size() - 1)
 	var minigame_scene : Minigame = switch_current_scene(unplayed_levels[level_index])
@@ -133,7 +132,7 @@ func lost() -> void:
 	if current_lives > 0:
 		select_minigame()
 	else:
-		load_main_menu()
+		show_final_score()
 
 func start_game() -> void:
 	current_lives = 3
