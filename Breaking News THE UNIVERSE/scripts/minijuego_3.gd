@@ -5,6 +5,7 @@ const sfx_win = preload("res://sounds/minigame_3/foleys/gano.mp3")
 const sfx_lose = preload("res://sounds/minigame_3/foleys/perdiste.mp3")
 
 var colores = ["Rojo", "Azul", "Verde", "Amarillo", "Morado"]
+var text_colors = [Color.RED, Color.BLUE, Color.FOREST_GREEN, Color.DARK_GOLDENROD, Color.PURPLE]
 var orden_correcto = []
 var orden_jugador = []
 var longitud_secuencia = 3
@@ -39,9 +40,21 @@ func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
 	asp.play()
 	asp.finished.connect(asp.queue_free)
 
+func randomize_text_color(current_color : String) -> Color:
+	var current_color_index = colores.find(current_color)
+	var use_correct_color = randi_range(0, 99)
+	if use_correct_color > 60:
+			return text_colors[current_color_index]
+	else:
+		var random_color = randi_range(0, text_colors.size() - 1)
+		while random_color == current_color_index:
+			random_color = randi_range(0, text_colors.size() - 1)
+		return text_colors[random_color]
+
 func actualizar_instruccion():
 	var siguiente = orden_correcto[orden_jugador.size()]
 	$Label.text = "Explota el planeta: " + siguiente
+	$Label.set("theme_override_colors/font_color", randomize_text_color(siguiente))
 
 func cable_cortado(color: String):
 	if orden_jugador.size() >= orden_correcto.size():
@@ -68,6 +81,7 @@ func cable_cortado(color: String):
 
 func nivel_superado():
 	$Label.text = "NIVEL SUPERADO!"
+	$Label.set("theme_override_colors/font_color", Color.BLACK)
 	for color in colores:
 		get_node(color).disabled = true
 	play_sound(sfx_win, -2.0)
