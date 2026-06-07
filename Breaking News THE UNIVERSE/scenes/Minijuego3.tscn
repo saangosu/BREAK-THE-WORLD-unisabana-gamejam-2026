@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dwekkcnh14rkg"]
 
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_3.png" id="bg_tex"]
+
 [ext_resource type="Script" uid="uid://hq7ek2bpe1g8" path="res://scripts/minijuego_3.gd" id="1_7pk5x"]
 
 [node name="Minijuego3" type="Node2D" unique_id=1521550332]

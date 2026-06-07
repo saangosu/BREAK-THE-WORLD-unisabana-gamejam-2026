@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://bs0wprtx8ukj3"]
 
 [ext_resource type="Script" uid="uid://bo5fkdx8lwap3" path="res://scripts/minigame_2_manager.gd" id="1_mgr"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_2.png" id="bg_texture"]
+
 
 [node name="Minigame2" type="Node2D" unique_id=1696170510]
 script = ExtResource("1_mgr")
 
-[node name="Background" type="ColorRect" parent="." unique_id=862905061]
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
-color = Color(0.1, 0.1, 0.2, 1)
+texture = ExtResource("bg_texture")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.5, 0.5, 0.5, 1)
 
 [node name="SlingshotBase" type="Node2D" parent="." unique_id=643290530]
 

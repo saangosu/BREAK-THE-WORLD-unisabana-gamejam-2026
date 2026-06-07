@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b7q0fhesdjkqb"]
 
+[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_1.png" id="bg_tex"]
+
 [ext_resource type="Script" uid="uid://c1k0adqm5sn50" path="res://scripts/eggs/eggs_minigame.gd" id="1_8u3g3"]
 [ext_resource type="Texture2D" uid="uid://ck4iw8agiqbq" path="res://textures/placeholders/half circle filled.png" id="2_poa2p"]
 [ext_resource type="Script" uid="uid://cherqsqhmellw" path="res://scripts/eggs/egg_crack.gd" id="3_eo7gk"]
@@ -24,6 +26,16 @@ height = 189.47266
 
 [node name="Eggs" type="Node2D" unique_id=250201289]
 script = ExtResource("1_8u3g3")
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("bg_tex")
+expand_mode = 1
+stretch_mode = 6
+modulate = Color(0.5, 0.5, 0.5, 1)
+
 
 [node name="Bowl" type="Sprite2D" parent="." unique_id=229170384]
 modulate = Color(0.42872298, 0.3166794, 0, 1)

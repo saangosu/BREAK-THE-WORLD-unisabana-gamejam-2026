@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://minigame5"]
+[gd_scene format=3 uid="uid://minigame5"]
 
-[ext_resource type="Script" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cbssfv6bu8jwo" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bvlan7jb7dn1" path="res://textures/art/Luna.png" id="2_moon"]
+[ext_resource type="Texture2D" uid="uid://t5sa5k318cid" path="res://assets/backgrounds/fondo_6.png" id="bg_texture"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -9,620 +10,622 @@ bg_color = Color(0.2, 0.2, 0.2, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
 bg_color = Color(1, 0.8, 0.2, 1)
 
-[node name="Minigame5" type="Node2D"]
+[node name="Minigame5" type="Node2D" unique_id=1865876153]
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=617871631]
+modulate = Color(0.5, 0.5, 0.5, 1)
+z_index = -10
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.1, 0.05, 0.15, 1)
 mouse_filter = 2
+texture = ExtResource("bg_texture")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="GraterFrame" type="ColorRect" parent="."]
-offset_left = 760.0
+[node name="GraterFrame" type="ColorRect" parent="." unique_id=1351477007]
+offset_left = 774.0
 offset_top = 100.0
-offset_right = 1160.0
+offset_right = 1174.0
 offset_bottom = 980.0
+mouse_filter = 2
 color = Color(0.65, 0.65, 0.7, 1)
-mouse_filter = 2
 
-[node name="GraterHolesBG" type="ColorRect" parent="GraterFrame"]
+[node name="GraterHolesBG" type="ColorRect" parent="GraterFrame" unique_id=1692491061]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 38.0
 offset_top = 40.0
-offset_right = 360.0
+offset_right = 358.0
 offset_bottom = 840.0
+mouse_filter = 2
 color = Color(0.3, 0.3, 0.35, 1)
-mouse_filter = 2
 
-[node name="Hole_1" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_1" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1182561672]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 50.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 70.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_2" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_2" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1785559945]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 110.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 130.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_3" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_3" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=940275442]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 170.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 190.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_4" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_4" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=728525834]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 230.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 250.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_5" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_5" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1827416092]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 290.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 310.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_6" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_6" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=821157399]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 350.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 370.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_7" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_7" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=916319391]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 410.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 430.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_8" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_8" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=623953598]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 470.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 490.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_9" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_9" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1677344013]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 530.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 550.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_10" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_10" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1981724117]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 590.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 610.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_11" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_11" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1939797508]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 650.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 670.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_12" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_12" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1193586859]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 710.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 730.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_13" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_13" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1915024558]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 33.0
 offset_top = 770.0
-offset_right = 70.0
+offset_right = 53.0
 offset_bottom = 790.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_14" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_14" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=569299195]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 50.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 70.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_15" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_15" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1181064966]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 110.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 130.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_16" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_16" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=418753403]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 170.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 190.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_17" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_17" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1607752219]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 230.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 250.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_18" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_18" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=667665098]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 290.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 310.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_19" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_19" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=840200155]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 350.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 370.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_20" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_20" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=223322018]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 410.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 430.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_21" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_21" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1393772320]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 470.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 490.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_22" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_22" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=503415730]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 530.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 550.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_23" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_23" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1480272169]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 590.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 610.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_24" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_24" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1700607566]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 650.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 670.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_25" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_25" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1419881080]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 710.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 730.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_26" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_26" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1509444958]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 101.0
 offset_top = 770.0
-offset_right = 130.0
+offset_right = 121.0
 offset_bottom = 790.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_27" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_27" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=392166305]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 50.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 70.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_28" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_28" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=825593891]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 110.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 130.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_29" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_29" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=587574134]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 170.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 190.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_30" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_30" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=215938367]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 230.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 250.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_31" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_31" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=104033521]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 290.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 310.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_32" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_32" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=236076777]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 350.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 370.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_33" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_33" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=194791491]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 410.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 430.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_34" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_34" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1160351258]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 470.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 490.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_35" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_35" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=275511282]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 530.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 550.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_36" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_36" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1813921107]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 590.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 610.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_37" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_37" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=580724644]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 650.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 670.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_38" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_38" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1885700414]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 710.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 730.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_39" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_39" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1108648174]
 layout_mode = 0
-offset_left = 170.0
+offset_left = 161.0
 offset_top = 770.0
-offset_right = 190.0
+offset_right = 181.0
 offset_bottom = 790.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_40" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_40" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=428698726]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 50.0
 offset_right = 250.0
 offset_bottom = 70.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_41" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_41" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1407086053]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 110.0
 offset_right = 250.0
 offset_bottom = 130.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_42" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_42" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1956734871]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 170.0
 offset_right = 250.0
 offset_bottom = 190.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_43" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_43" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1611954795]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 230.0
 offset_right = 250.0
 offset_bottom = 250.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_44" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_44" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1574910816]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 290.0
 offset_right = 250.0
 offset_bottom = 310.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_45" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_45" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1795817944]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 350.0
 offset_right = 250.0
 offset_bottom = 370.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_46" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_46" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1744999045]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 410.0
 offset_right = 250.0
 offset_bottom = 430.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_47" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_47" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1265270612]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 470.0
 offset_right = 250.0
 offset_bottom = 490.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_48" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_48" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1803266251]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 530.0
 offset_right = 250.0
 offset_bottom = 550.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_49" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_49" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=352935953]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 590.0
 offset_right = 250.0
 offset_bottom = 610.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_50" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_50" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=378780920]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 650.0
 offset_right = 250.0
 offset_bottom = 670.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_51" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_51" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1468861645]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 710.0
 offset_right = 250.0
 offset_bottom = 730.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_52" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_52" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1626936426]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 770.0
 offset_right = 250.0
 offset_bottom = 790.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_53" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_53" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=987392784]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 50.0
 offset_right = 310.0
 offset_bottom = 70.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_54" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_54" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=639782094]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 110.0
 offset_right = 310.0
 offset_bottom = 130.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_55" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_55" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1019900473]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 170.0
 offset_right = 310.0
 offset_bottom = 190.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_56" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_56" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1543212775]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 230.0
 offset_right = 310.0
 offset_bottom = 250.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_57" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_57" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=237887556]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 290.0
 offset_right = 310.0
 offset_bottom = 310.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_58" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_58" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1838356926]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 350.0
 offset_right = 310.0
 offset_bottom = 370.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_59" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_59" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=232440275]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 410.0
 offset_right = 310.0
 offset_bottom = 430.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_60" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_60" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=777157606]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 470.0
 offset_right = 310.0
 offset_bottom = 490.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_61" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_61" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1944543005]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 530.0
 offset_right = 310.0
 offset_bottom = 550.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_62" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_62" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=564532657]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 590.0
 offset_right = 310.0
 offset_bottom = 610.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_63" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_63" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=2137589015]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 650.0
 offset_right = 310.0
 offset_bottom = 670.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_64" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_64" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=873340077]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 710.0
 offset_right = 310.0
 offset_bottom = 730.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Hole_65" type="ColorRect" parent="GraterFrame/GraterHolesBG"]
+[node name="Hole_65" type="ColorRect" parent="GraterFrame/GraterHolesBG" unique_id=1286889918]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 770.0
 offset_right = 310.0
 offset_bottom = 790.0
-color = Color(0.1, 0.1, 0.1, 1)
 mouse_filter = 2
+color = Color(0.1, 0.1, 0.1, 1)
 
-
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2095419239]
 offset_left = 1300.0
 offset_top = 100.0
 offset_right = 1400.0
@@ -632,11 +635,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_fill")
 fill_mode = 3
 show_percentage = false
 
-[node name="CheeseParticles" type="CPUParticles2D" parent="."]
+[node name="CheeseParticles" type="CPUParticles2D" parent="." unique_id=301675351]
 position = Vector2(960, 540)
 emitting = false
 amount = 60
-lifetime = 1.0
 emission_shape = 3
 emission_rect_extents = Vector2(60, 20)
 direction = Vector2(0, 1)
@@ -648,7 +650,7 @@ scale_amount_min = 8.0
 scale_amount_max = 16.0
 color = Color(1, 0.9, 0.2, 1)
 
-[node name="Moon" type="Sprite2D" parent="."]
+[node name="Moon" type="Sprite2D" parent="." unique_id=678878285]
 position = Vector2(960, 540)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_moon")
