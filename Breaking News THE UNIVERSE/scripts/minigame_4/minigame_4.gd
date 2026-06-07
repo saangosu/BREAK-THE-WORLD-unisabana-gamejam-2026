@@ -5,6 +5,11 @@ extends Minigame
 @onready var planet = $Planet
 @onready var ok_button = $OKButton
 
+const sfx_frequency = preload("res://sounds/minigame_4/Frecuencia/frecuencia.mp3")
+const sfx_impact = preload("res://sounds/minigame_4/impacto_de_roca/impacto_de_roca.mp3")
+const sfx_win = preload("res://sounds/minigame_4/Foleys/gano.mp3")
+const sfx_lose = preload("res://sounds/minigame_4/Foleys/perdiste.mp3")
+
 var target_frequency : float
 var player_frequency : float
 var target_amplitude : float
@@ -13,6 +18,8 @@ var player_amplitude : float
 var match_tolerance_freq = 0.05
 var match_tolerance_amp = 20.0
 var game_over = false
+
+var frequency_player : AudioStreamPlayer
 
 func _ready():
 	target_frequency = randf_range(0.2, 0.8)
@@ -31,11 +38,30 @@ func _ready():
 	knob_amp.value_changed.connect(_on_knob_amp_changed)
 	
 	ok_button.pressed.connect(_on_ok_pressed)
+	
+	# Play looping frequency hum/buzz
+	frequency_player = AudioStreamPlayer.new()
+	frequency_player.stream = sfx_frequency
+	if frequency_player.stream is AudioStreamMP3:
+		frequency_player.stream.loop = true
+	frequency_player.volume_db = -18.0 # Lowered volume for hum stability
+	frequency_player.pitch_scale = 1.0 # Center pitch for 0.5 frequency knob value
+	add_child(frequency_player)
+	frequency_player.play()
+	
+	# Connect to game timer timeout for lose SFX
+	var game_manager = get_parent()
+	if game_manager and game_manager.has_node("GameTimer"):
+		var game_timer = game_manager.get_node("GameTimer")
+		game_timer.minigame_timed_out.connect(_on_timeout)
 
 func _on_knob_freq_changed(value):
 	if game_over: return
 	player_frequency = lerp(0.1, 0.9, value)
 	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
+	if frequency_player:
+		# Map knob frequency to pitch_scale dynamically
+		frequency_player.pitch_scale = lerp(0.5, 1.5, value)
 
 func _on_knob_amp_changed(value):
 	if game_over: return
@@ -51,6 +77,11 @@ func _on_ok_pressed():
 	if freq_match and amp_match:
 		win_game()
 	else:
+		var gm = get_parent()
+		if gm and "current_lives" in gm and gm.current_lives <= 1:
+			if frequency_player:
+				frequency_player.stop()
+			play_sound(sfx_lose, -2.0)
 		emit_signal("life_lost")
 		# Agitar el boton o dar feedback visual
 		var tween = create_tween()
@@ -93,9 +124,23 @@ func animate_wave(line: Line2D, freq: float, amp: float):
 
 var tex_broken = preload("res://assets/sprites/minigame_4/IMG_1510.png")
 
+func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
+	if stream == null: return
+	var asp = AudioStreamPlayer.new()
+	asp.stream = stream
+	asp.volume_db = volume
+	get_tree().current_scene.add_child(asp)
+	asp.play()
+	asp.finished.connect(asp.queue_free)
+
 func win_game():
 	game_over = true
 	emit_signal("point_scored")
+	
+	if frequency_player:
+		frequency_player.stop()
+	play_sound(sfx_impact, -15.0) # Rock impact sound (explosion)
+	play_sound(sfx_win, -2.0) # Win foley
 	
 	# "Explotar" el planeta
 	planet.texture = tex_broken
@@ -116,3 +161,9 @@ func win_game():
 	
 	await get_tree().create_timer(1.5).timeout
 	emit_signal("completed")
+
+func _on_timeout() -> void:
+	if not game_over:
+		if frequency_player:
+			frequency_player.stop()
+		play_sound(sfx_lose, -2.0)
