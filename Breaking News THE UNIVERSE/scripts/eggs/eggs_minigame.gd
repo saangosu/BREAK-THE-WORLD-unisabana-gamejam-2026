@@ -19,7 +19,6 @@ var eggs : Array = []
 
 var game_over = false
 var status_label: Label
-@onready var BGM_player = $BGMPlayer
 
 @onready var bowl_sprite = $Bowl
 const tex_vacio = preload("res://assets/sprites/minigame_1/tazon/tazon_vacio.png")
@@ -107,6 +106,4 @@ func win_game(reason: String):
 
 func _on_timeout() -> void:
 	if not game_over:
-		if BGM_player:
-			BGM_player.stop()
 		play_sound(sfx_lose, -2.0)

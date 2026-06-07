@@ -54,8 +54,17 @@ func load_main_menu() -> void:
 	var menu_scene = switch_current_scene(user_interfaces["main_menu"])
 	current_signals.insert(0, menu_scene.start_game)
 	current_signals.insert(1, menu_scene.quit)
+	current_signals.insert(2, menu_scene.credits_requested)
 	current_signals[0].connect(start_game)
 	current_signals[1].connect(quit)
+	current_signals[2].connect(load_credits)
+	in_game_ui.visible = false
+	game_timer.stop()
+
+func load_credits() -> void:
+	var credits_scene = switch_current_scene("res://scenes/ui/credits.tscn")
+	current_signals.insert(0, credits_scene.finished)
+	current_signals[0].connect(load_main_menu)
 	in_game_ui.visible = false
 	game_timer.stop()
 

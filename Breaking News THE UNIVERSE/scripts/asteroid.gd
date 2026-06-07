@@ -26,7 +26,7 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 	add_to_group("asteroid")
 
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if launched: return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -44,7 +44,7 @@ func _input_event(viewport, event, shape_idx):
 			drag_player.play()
 			drag_player.finished.connect(drag_player.queue_free)
 
-func _process(delta):
+func _process(_delta):
 	if dragging and not launched:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			var drag_vec = get_global_mouse_position() - start_pos

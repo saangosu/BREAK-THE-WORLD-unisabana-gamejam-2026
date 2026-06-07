@@ -5,7 +5,7 @@ var pull_force = 1500.0
 func _ready():
 	gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("asteroid") and body is RigidBody2D:

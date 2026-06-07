@@ -193,7 +193,7 @@ func _on_timeout() -> void:
 			BGM_player.stop()
 		play_sound(sfx_lose, -2.0)
 
-func _process(delta):
+func _process(_delta):
 	if is_instance_valid(current_asteroid):
 		if not current_asteroid.launched:
 			front_band.visible = true
