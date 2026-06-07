@@ -71,6 +71,7 @@ func check_impacts() -> void:
 				create_shreds(texture)
 			crack()
 		2:
+			play_sound(sfx_crack, -2.0)
 			for texture in shreds_crack_two:
 				create_shreds(texture)
 			$Sprite.texture = load(egg_crack_two)
