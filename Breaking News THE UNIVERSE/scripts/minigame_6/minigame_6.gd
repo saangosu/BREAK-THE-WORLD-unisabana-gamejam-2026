@@ -126,13 +126,13 @@ func _attempt_shot():
 	tween.tween_property(golf_club, "rotation_degrees", back_rotation, 0.15)
 	
 	# Play whoosh sound when forward swing starts
-	tween.tween_callback(func(): play_sound(sfx_whoosh, -4.0))
+	tween.tween_callback(play_sound.bind(sfx_whoosh, -4.0))
 	
 	var follow_through = -45.0
 	tween.tween_property(golf_club, "rotation_degrees", follow_through, 0.1)
 	
 	# Play contact sound when hit occurs
-	tween.tween_callback(func(): play_sound(sfx_impact, -4.0))
+	tween.tween_callback(play_sound.bind(sfx_impact, -4.0))
 	
 	var flight_time = lerp(0.3, 0.6, stored_power)
 	tween.parallel().tween_property(planet, "global_position", Vector2(target_x, target_y), flight_time).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_delay(0.25)
