@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://14yqp2irvoow" path="res://textures/art/egg_uncracked.png" id="4_3osmj"]
 [ext_resource type="PackedScene" uid="uid://44goiwbwusfi" path="res://scenes/eggs/egg_shred.tscn" id="4_poa2p"]
 [ext_resource type="AudioStream" uid="uid://dvr5c7t5ddfy2" path="res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav" id="5_bgm"]
+[ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="7_h11r0"]
+[ext_resource type="Script" uid="uid://cod5vy6i074mi" path="res://scripts/light_tweening.gd" id="8_x86mk"]
 [ext_resource type="Texture2D" uid="uid://b5cslvg7tti8b" path="res://assets/backgrounds/fondo_1.png" id="bg_tex"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_437cf"]
@@ -88,6 +90,12 @@ position = Vector2(5.849717, 12.279282)
 rotation = 0.20071286
 shape = SubResource("CapsuleShape2D_axssh")
 
+[node name="FeedbackLight" type="PointLight2D" parent="Egg1" unique_id=1119081797]
+texture = ExtResource("7_h11r0")
+texture_scale = 2.4
+script = ExtResource("8_x86mk")
+metadata/_custom_type_script = "uid://cod5vy6i074mi"
+
 [node name="Egg2" type="RigidBody2D" parent="." unique_id=2042956261]
 position = Vector2(1776, 760)
 rotation = -0.49741885
@@ -114,6 +122,12 @@ position = Vector2(5.849717, 12.279282)
 rotation = -0.12391838
 shape = SubResource("CapsuleShape2D_axssh")
 
+[node name="FeedbackLight" type="PointLight2D" parent="Egg2" unique_id=55342488]
+texture = ExtResource("7_h11r0")
+texture_scale = 2.4
+script = ExtResource("8_x86mk")
+metadata/_custom_type_script = "uid://cod5vy6i074mi"
+
 [node name="Egg3" type="RigidBody2D" parent="." unique_id=895048978]
 position = Vector2(1647, 901)
 rotation = -0.49741885
@@ -139,6 +153,12 @@ texture = ExtResource("4_3osmj")
 position = Vector2(5.849717, 12.279282)
 rotation = -0.12391838
 shape = SubResource("CapsuleShape2D_axssh")
+
+[node name="FeedbackLight" type="PointLight2D" parent="Egg3" unique_id=694506544]
+texture = ExtResource("7_h11r0")
+texture_scale = 2.4
+script = ExtResource("8_x86mk")
+metadata/_custom_type_script = "uid://cod5vy6i074mi"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1199955701]
 stream = ExtResource("5_bgm")

@@ -16,8 +16,8 @@ var player_frequency : float
 var target_amplitude : float
 var player_amplitude : float
 
-var match_tolerance_freq = 0.02
-var match_tolerance_amp = 5.0
+var match_tolerance_freq = 0.04
+var match_tolerance_amp = 8.0
 var game_over = false
 
 var frequency_player : AudioStreamPlayer
@@ -56,6 +56,17 @@ func _ready():
 		var game_timer = game_manager.get_node("GameTimer")
 		game_timer.minigame_timed_out.connect(_on_timeout)
 
+func check_light() -> void:
+	var prev_light_state = $OK_Light.visible
+	var light_state = check_frequency_match()
+	if prev_light_state != light_state:
+		play_sound(sfx_click, -3.0)
+	$OK_Light.visible = light_state
+	if light_state == true:
+		$OK_Light.start_tweening(1, 10, .25)
+	else:
+		$OK_Light.kill_tween()
+
 func _on_knob_freq_changed(value):
 	if game_over: return
 	player_frequency = lerp(0.1, 0.9, value)
@@ -63,6 +74,7 @@ func _on_knob_freq_changed(value):
 	if frequency_player:
 		# Map knob frequency to pitch_scale dynamically
 		frequency_player.pitch_scale = lerp(0.5, 1.5, value)
+	check_light()
 
 func _on_knob_amp_changed(value):
 	if game_over: return
@@ -71,16 +83,25 @@ func _on_knob_amp_changed(value):
 	if frequency_player:
 		# Map knob amplitude to volume_db dynamically
 		frequency_player.volume_db = lerp(-32.0, -14.0, value)
+	check_light()
+
+func check_frequency_match() -> bool:
+	var freq_match = abs(target_frequency - player_frequency) < match_tolerance_freq
+	var amp_match = abs(target_amplitude - player_amplitude) < match_tolerance_amp
+	
+	if freq_match and amp_match:
+		return true
+	else:
+		return false
 
 func _on_ok_pressed():
 	if game_over: return
 	
 	play_sound(sfx_click, -6.0)
 	
-	var freq_match = abs(target_frequency - player_frequency) < match_tolerance_freq
-	var amp_match = abs(target_amplitude - player_amplitude) < match_tolerance_amp
+	var can_win = check_frequency_match()
 	
-	if freq_match and amp_match:
+	if can_win:
 		win_game()
 	else:
 		var gm = get_parent()

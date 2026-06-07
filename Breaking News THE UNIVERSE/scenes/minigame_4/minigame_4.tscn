@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bncrtca5cs55o" path="res://scripts/minigame_4/minigame_4.gd" id="1_m4"]
 [ext_resource type="Script" uid="uid://r1mmywl8pv3n" path="res://scripts/minigame_4/knob.gd" id="2_knb"]
 [ext_resource type="Texture2D" uid="uid://bivqvf3lsjqrd" path="res://assets/sprites/minigame_4/IMG_1508.png" id="3_tex"]
+[ext_resource type="AudioStream" uid="uid://dvr5c7t5ddfy2" path="res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav" id="6_eob3h"]
+[ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="7_iyiih"]
+[ext_resource type="Script" uid="uid://cod5vy6i074mi" path="res://scripts/light_tweening.gd" id="8_r6rom"]
 [ext_resource type="Texture2D" uid="uid://bx4r0118fkax5" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
 [ext_resource type="Texture2D" uid="uid://xibqlh2s0360" path="res://assets/sprites/minigame_4/sonido.png" id="radio_tex"]
 
@@ -66,3 +69,15 @@ offset_top = 840.0
 offset_right = 1030.0
 offset_bottom = 890.0
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=172767691]
+stream = ExtResource("6_eob3h")
+volume_db = -16.0
+autoplay = true
+
+[node name="OK_Light" type="PointLight2D" parent="." unique_id=1945491296]
+visible = false
+position = Vector2(953, 867)
+color = Color(1, 0, 0, 1)
+texture = ExtResource("7_iyiih")
+script = ExtResource("8_r6rom")

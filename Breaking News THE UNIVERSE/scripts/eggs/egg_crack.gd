@@ -32,6 +32,7 @@ const sfx_break = preload("res://sounds/minigame_1/huevo_planeta/huevo_roto.wav"
 func _ready() -> void:
 	hurtbox.input_event.connect(clicked)
 	hurtbox.area_entered.connect(collided)
+	$FeedbackLight.start_tweening(.1, .5, .9)
 
 func _physics_process(_delta: float) -> void:
 	if is_selected:
@@ -59,6 +60,7 @@ func clicked(_viewport : Viewport, event : InputEvent, _shape_idx) -> void:
 	# checking event type
 	if event.is_action_pressed("click") && impacts < 3 && can_select:
 		is_selected = true
+		$FeedbackLight.kill_tween()
 		selected.emit(true, name)
 
 func check_impacts() -> void:
