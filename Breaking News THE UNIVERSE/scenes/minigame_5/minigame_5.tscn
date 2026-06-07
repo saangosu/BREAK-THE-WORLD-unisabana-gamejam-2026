@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://minigame5"]
 
-[ext_resource type="Script" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cbssfv6bu8jwo" path="res://scripts/minigame_5/minigame_5.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bvlan7jb7dn1" path="res://textures/art/Luna.png" id="2_moon"]
+[ext_resource type="PackedScene" uid="uid://bvhrtjbepr2y3" path="res://scenes/feedback_arrow.tscn" id="4_asqyl"]
 [ext_resource type="Texture2D" uid="uid://bmbcfgtxtgwaq" path="res://assets/backgrounds/fondo_7.png" id="bg_texture"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
@@ -654,3 +655,16 @@ color = Color(1, 0.9, 0.2, 1)
 position = Vector2(960, 540)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_moon")
+
+[node name="FeedbackArrowDown" parent="." unique_id=940570255 instance=ExtResource("4_asqyl")]
+visible = false
+modulate = Color(1, 0.92941177, 0.63529414, 1)
+position = Vector2(632, 728)
+scale = Vector2(0.5, 0.5)
+
+[node name="FeedbackArrowUp" parent="." unique_id=1610806371 instance=ExtResource("4_asqyl")]
+visible = false
+modulate = Color(1, 0.92941177, 0.63529414, 1)
+position = Vector2(632, 347)
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)

@@ -3,6 +3,8 @@ extends Minigame
 @onready var moon = $Moon
 @onready var progress_bar = $ProgressBar
 @onready var particles = $CheeseParticles
+@onready var feedback_arrow_down = $FeedbackArrowDown
+@onready var feedback_arrow_up = $FeedbackArrowUp
 
 const sfx_grater = preload("res://sounds/minigame_5/Rallador/rallador.mp3")
 const sfx_win = preload("res://sounds/minigame_5/Foleys/gano.mp3")
@@ -23,11 +25,19 @@ var BGM_player : AudioStreamPlayer
 var grater_player : AudioStreamPlayer
 var last_motion_time = 0.0
 
+func set_arrows() -> void:
+	feedback_arrow_down.start_tweening()
+	feedback_arrow_up.start_tweening(-feedback_arrow_down.movement_range, .5)
+	feedback_arrow_down.visible = true
+	feedback_arrow_up.visible = true
+
 func _ready():
 	progress_bar.max_value = 100
 	progress_bar.value = 0
 	moon.scale = Vector2(initial_scale, initial_scale)
 	moon.position = Vector2(960, 540)
+	
+	call_deferred("set_arrows")
 	
 	# Play looping background music
 	var bgm = load("res://sounds/minigame_5/musica_de_fondo/pol-star-way-short.wav")
@@ -36,7 +46,7 @@ func _ready():
 			bgm.loop_mode = AudioStreamWAV.LOOP_FORWARD
 		BGM_player = AudioStreamPlayer.new()
 		BGM_player.stream = bgm
-		BGM_player.volume_db = -12.0 # Adjusted BGM volume
+		BGM_player.volume_db = -18.0 # Adjusted BGM volume
 		add_child(BGM_player)
 		BGM_player.play()
 		
@@ -145,6 +155,7 @@ func _hit_wall():
 
 func _win():
 	is_game_over = true
+	stop_timer.emit()
 	particles.emitting = false
 	if grater_player and grater_player.playing:
 		grater_player.stop()

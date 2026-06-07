@@ -84,7 +84,10 @@ func nivel_superado():
 	$Label.set("theme_override_colors/font_color", Color.BLACK)
 	for color in colores:
 		get_node(color).disabled = true
-	play_sound(sfx_win, -2.0)
+	$BgMusic.stop()
+	play_sound(sfx_win, 0)
+	stop_timer.emit()
+	await get_tree().create_timer(1).timeout
 	completed.emit()
 
 func _on_timeout() -> void:

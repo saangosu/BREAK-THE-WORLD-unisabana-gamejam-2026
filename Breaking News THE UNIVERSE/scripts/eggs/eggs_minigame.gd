@@ -75,6 +75,7 @@ func egg_selected(selected : bool, selected_egg : String) -> void:
 			eggs[egg].switch_can_select(!selected, selected_egg)
 
 func increase_score() -> void:
+	$FeedbackArrow.visible = false
 	play_sound(sfx_viscosity, -4.0)
 	emit_signal("point_scored")
 	level_score += 1
@@ -96,9 +97,10 @@ func win_game(reason: String):
 	status_label.text = reason
 	status_label.modulate = Color(0, 1, 0) # Verde
 	
-	if BGM_player:
-		BGM_player.stop()
-	play_sound(sfx_win, -2.0)
+
+	$Music.stream = load("res://sounds/minigame_1/Foleys/gano.mp3")
+	$Music.volume_db = 9
+	$Music.play()
 	
 	await get_tree().create_timer(2.0).timeout
 	emit_signal("completed")

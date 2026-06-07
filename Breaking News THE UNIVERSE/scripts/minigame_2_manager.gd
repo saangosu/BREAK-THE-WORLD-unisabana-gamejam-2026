@@ -154,6 +154,7 @@ func _on_planet_destroyed(pos: Vector2, p_color: Color):
 
 func win_game(reason: String):
 	game_over = true
+	stop_timer.emit()
 	status_label.text = reason
 	status_label.modulate = Color(0, 1, 0) # Verde
 	

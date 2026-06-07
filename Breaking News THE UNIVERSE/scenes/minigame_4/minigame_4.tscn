@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dvr5c7t5ddfy2" path="res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav" id="6_eob3h"]
 [ext_resource type="Texture2D" uid="uid://dp5rnqj0cdktx" path="res://textures/placeholders/basic circle filled.png" id="7_iyiih"]
 [ext_resource type="Script" uid="uid://cod5vy6i074mi" path="res://scripts/light_tweening.gd" id="8_r6rom"]
+[ext_resource type="PackedScene" uid="uid://bvhrtjbepr2y3" path="res://scenes/feedback_arrow.tscn" id="9_kbp77"]
 [ext_resource type="Texture2D" uid="uid://bx4r0118fkax5" path="res://assets/backgrounds/fondo_4.png" id="bg_texture"]
 [ext_resource type="Texture2D" uid="uid://xibqlh2s0360" path="res://assets/sprites/minigame_4/sonido.png" id="radio_tex"]
 
@@ -81,3 +82,9 @@ position = Vector2(953, 867)
 color = Color(1, 0, 0, 1)
 texture = ExtResource("7_iyiih")
 script = ExtResource("8_r6rom")
+
+[node name="FeedbackArrow" parent="." unique_id=940570255 instance=ExtResource("9_kbp77")]
+visible = false
+modulate = Color(1, 0, 0, 1)
+position = Vector2(925, 682)
+scale = Vector2(0.5, 0.5)

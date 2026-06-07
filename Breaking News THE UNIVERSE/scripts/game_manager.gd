@@ -12,7 +12,7 @@ const max_lives := 3
 @onready var game_timer = $GameTimer
 
 # dictionaries
-var levels := ["res://scenes/eggs/eggs.tscn", "res://scenes/minigame_2/minigame_2.tscn", "res://scenes/Minijuego3/Minijuego3.tscn", "res://scenes/minigame_4/minigame_4.tscn", "res://scenes/minigame_6/minigame_6.tscn", "res://scenes/minigame_5/minigame_5.tscn"]
+var levels := ["res://scenes/minigame_1/eggs.tscn", "res://scenes/minigame_2/minigame_2.tscn", "res://scenes/Minigame_3/Minijuego3.tscn", "res://scenes/minigame_4/minigame_4.tscn", "res://scenes/minigame_6/minigame_6.tscn", "res://scenes/minigame_5/minigame_5.tscn"]
 var user_interfaces := {"main_menu" : "res://scenes/ui/main_menu.tscn"}
 
 # arrays
@@ -69,8 +69,10 @@ func select_minigame() -> void:
 	
 	current_signals.insert(0, minigame_scene.completed)
 	current_signals.insert(1, minigame_scene.lost)
+	current_signals.insert(2, minigame_scene.stop_timer)
 	current_signals[0].connect(completed)
 	current_signals[1].connect(lost)
+	current_signals[2].connect(stop_timer)
 	
 	if minigame_scene.has_signal("point_scored"):
 		var point_sig = minigame_scene.point_scored
@@ -117,11 +119,7 @@ func _on_life_lost():
 
 func completed() -> void:
 	game_timer.stop()
-	if current_time > min_time:
-		current_time -= .5
-	else:
-		current_time = min_time
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	select_minigame()
 
 func lost() -> void:
@@ -142,6 +140,9 @@ func start_game() -> void:
 	in_game_ui.visible = true
 	in_game_ui.set_lives_label(current_lives)
 	select_minigame()
+
+func stop_timer() -> void:
+	game_timer.stop()
 
 func quit() -> void:
 	get_tree().quit()

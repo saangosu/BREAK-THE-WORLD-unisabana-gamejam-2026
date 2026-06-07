@@ -17,7 +17,7 @@ var target_amplitude : float
 var player_amplitude : float
 
 var match_tolerance_freq = 0.04
-var match_tolerance_amp = 8.0
+var match_tolerance_amp = 10.0
 var game_over = false
 
 var frequency_player : AudioStreamPlayer
@@ -60,8 +60,9 @@ func check_light() -> void:
 	var prev_light_state = $OK_Light.visible
 	var light_state = check_frequency_match()
 	if prev_light_state != light_state:
-		play_sound(sfx_click, -3.0)
+		play_sound(load("res://sounds/minigame_6/Foleys/golf selected.wav"), 0.0)
 	$OK_Light.visible = light_state
+	$FeedbackArrow.visible = light_state
 	if light_state == true:
 		$OK_Light.start_tweening(1, 10, .25)
 	else:
@@ -97,6 +98,7 @@ func check_frequency_match() -> bool:
 func _on_ok_pressed():
 	if game_over: return
 	
+	$FeedbackArrow.visible = false
 	play_sound(sfx_click, -6.0)
 	
 	var can_win = check_frequency_match()
@@ -162,6 +164,7 @@ func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
 
 func win_game():
 	game_over = true
+	stop_timer.emit()
 	emit_signal("point_scored")
 	
 	if frequency_player:

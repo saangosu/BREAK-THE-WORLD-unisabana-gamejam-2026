@@ -16,8 +16,11 @@ const sfx_black_hole = preload("res://sounds/minigame_6/agujero_negro/agujero_ne
 const sfx_win = preload("res://sounds/minigame_6/Foleys/gano.mp3")
 const sfx_lose = preload("res://sounds/minigame_6/Foleys/perdiste.mp3")
 
-var cursor_speed_power = 1800.0
-var cursor_speed_dir = 1800.0
+var cursor_speed_power : int
+var cursor_speed_dir : int
+
+var max_speed : int = 1500
+var min_speed : int = 500
 
 var power_dir_y = 1
 var dir_dir_x = 1
@@ -34,6 +37,9 @@ func _ready():
 	cursor_power.position.y = bar_power.size.y
 	cursor_dir.position.x = 0
 	bar_dir.visible = false
+	
+	cursor_speed_power = randi_range(min_speed, max_speed)
+	cursor_speed_dir = randi_range(min_speed, max_speed)
 	
 	var gm = get_parent()
 	var time_limit = 10.0
@@ -78,8 +84,10 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("ui_accept") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
 		if current_state == State.POWER:
+			$SelectSound.play()
 			_lock_power()
 		elif current_state == State.DIRECTION:
+			$SelectSound.play()
 			_lock_direction()
 
 func _lock_power():
@@ -138,6 +146,7 @@ func _attempt_shot():
 	tween.parallel().tween_property(planet, "global_position", Vector2(target_x, target_y), flight_time).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD).set_delay(0.25)
 	
 	if is_win:
+		stop_timer.emit()
 		tween.parallel().tween_property(planet, "scale", Vector2(0.05, 0.05), flight_time).set_delay(0.25)
 		await tween.finished
 		

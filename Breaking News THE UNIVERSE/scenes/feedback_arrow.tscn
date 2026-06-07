@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bvhrtjbepr2y3"]
+
+[ext_resource type="Script" uid="uid://g8xw0vpe028" path="res://scripts/feedback_arrow.gd" id="1_ejs2w"]
+[ext_resource type="Texture2D" uid="uid://cib0lc1un2xie" path="res://textures/art/arrow.png" id="2_kfilw"]
+
+[node name="FeedbackArrow" type="Node2D" unique_id=940570255]
+script = ExtResource("1_ejs2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1175400208]
+texture = ExtResource("2_kfilw")
