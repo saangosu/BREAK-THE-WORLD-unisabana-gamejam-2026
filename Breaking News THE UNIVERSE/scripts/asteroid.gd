@@ -12,6 +12,9 @@ var launched = false
 
 const sfx_whoosh = preload("res://sounds/minigame_2/Asteroide/whoosh.mp3")
 const sfx_impact = preload("res://sounds/minigame_2/Asteroide/impacto_de_roca.mp3")
+const sfx_drag = preload("res://sounds/minigame_2/Asteroide/jalar.mp3")
+
+var drag_player: AudioStreamPlayer = null
 
 func _ready():
 	input_pickable = true
@@ -28,6 +31,17 @@ func _input_event(viewport, event, shape_idx):
 		if event.pressed:
 			dragging = true
 			start_pos = global_position
+			
+			# Play drag sound
+			if is_instance_valid(drag_player):
+				drag_player.stop()
+				drag_player.queue_free()
+			drag_player = AudioStreamPlayer.new()
+			drag_player.stream = sfx_drag
+			drag_player.volume_db = -6.0
+			get_tree().current_scene.add_child(drag_player)
+			drag_player.play()
+			drag_player.finished.connect(drag_player.queue_free)
 
 func _process(delta):
 	if dragging and not launched:
@@ -54,13 +68,19 @@ func launch_asteroid():
 	var drag_vec = global_position - start_pos
 	var impulse = -drag_vec * launch_multiplier
 	apply_central_impulse(impulse)
+	
+	# Stop drag sound if it's still playing
+	if is_instance_valid(drag_player):
+		drag_player.stop()
+		drag_player.queue_free()
+		
 	play_sound(sfx_whoosh, 4.0)
 	emit_signal("asteroid_launched")
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage()
-		play_sound(sfx_impact, -8.0)
+		play_sound(sfx_impact, -16.0)
 		emit_signal("hit_planet")
 	emit_signal("asteroid_destroyed")
 	queue_free()
