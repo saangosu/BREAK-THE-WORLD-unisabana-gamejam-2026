@@ -44,7 +44,7 @@ func _ready():
 	frequency_player.stream = sfx_frequency
 	if frequency_player.stream is AudioStreamMP3:
 		frequency_player.stream.loop = true
-	frequency_player.volume_db = -18.0 # Lowered volume for hum stability
+	frequency_player.volume_db = lerp(-32.0, -14.0, 0.5) # Initial volume based on default knob position
 	frequency_player.pitch_scale = 1.0 # Center pitch for 0.5 frequency knob value
 	add_child(frequency_player)
 	frequency_player.play()
@@ -67,6 +67,9 @@ func _on_knob_amp_changed(value):
 	if game_over: return
 	player_amplitude = lerp(50.0, 200.0, value)
 	update_wave(player_wave, player_frequency, player_amplitude, Color(0, 1, 0, 0.8))
+	if frequency_player:
+		# Map knob amplitude to volume_db dynamically
+		frequency_player.volume_db = lerp(-32.0, -14.0, value)
 
 func _on_ok_pressed():
 	if game_over: return
