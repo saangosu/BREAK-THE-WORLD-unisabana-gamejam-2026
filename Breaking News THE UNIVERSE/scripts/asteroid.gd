@@ -10,6 +10,9 @@ var max_drag_distance = 200.0
 var launch_multiplier = 10.0
 var launched = false
 
+const sfx_whoosh = preload("res://sounds/minigame_2/Asteroide/whoosh.mp3")
+const sfx_impact = preload("res://sounds/minigame_2/Asteroide/impacto_de_roca.mp3")
+
 func _ready():
 	input_pickable = true
 	gravity_scale = 0
@@ -37,16 +40,27 @@ func _process(delta):
 			dragging = false
 			launch_asteroid()
 
+func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
+	if stream == null: return
+	var asp = AudioStreamPlayer.new()
+	asp.stream = stream
+	asp.volume_db = volume
+	get_tree().current_scene.add_child(asp)
+	asp.play()
+	asp.finished.connect(asp.queue_free)
+
 func launch_asteroid():
 	launched = true
 	var drag_vec = global_position - start_pos
 	var impulse = -drag_vec * launch_multiplier
 	apply_central_impulse(impulse)
+	play_sound(sfx_whoosh, 4.0)
 	emit_signal("asteroid_launched")
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage()
+		play_sound(sfx_impact, -8.0)
 		emit_signal("hit_planet")
 	emit_signal("asteroid_destroyed")
 	queue_free()

@@ -4,6 +4,9 @@ var black_hole_scene = preload("res://scenes/minigame_2/black_hole.tscn")
 var asteroid_scene = preload("res://scenes/minigame_2/asteroid.tscn")
 var planet_scene = preload("res://scenes/minigame_2/planet.tscn")
 
+const sfx_win = preload("res://sounds/minigame_2/Foleys/gano.mp3")
+const sfx_lose = preload("res://sounds/minigame_2/Foleys/perdiste.mp3")
+
 @onready var spawn_point = $AsteroidSpawnPoint
 @onready var planet_container = $PlanetContainer
 
@@ -13,6 +16,7 @@ var game_over = false
 var hit_something = false
 
 var status_label: Label
+var BGM_player : AudioStreamPlayer
 
 func _ready():
 	setup_ui()
@@ -25,6 +29,23 @@ func _ready():
 	spawn_planet(Vector2(400, 150))
 	spawn_planet(Vector2(960, 350))
 	spawn_planet(Vector2(1400, 550))
+	
+	# Play looping background music
+	var bgm = load("res://sounds/minigame_2/musica_de_fondo/musica_de_fondo.wav")
+	if bgm:
+		if bgm is AudioStreamWAV:
+			bgm.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		BGM_player = AudioStreamPlayer.new()
+		BGM_player.stream = bgm
+		BGM_player.volume_db = -12.0 # Balanced volume
+		add_child(BGM_player)
+		BGM_player.play()
+		
+	# Connect to game timer timeout for lose SFX
+	var game_manager = get_parent()
+	if game_manager and game_manager.has_node("GameTimer"):
+		var game_timer = game_manager.get_node("GameTimer")
+		game_timer.minigame_timed_out.connect(_on_timeout)
 
 func setup_ui():
 	var canvas = CanvasLayer.new()
@@ -59,10 +80,24 @@ func _on_asteroid_launched():
 func _on_hit_planet():
 	hit_something = true
 
+func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
+	if stream == null: return
+	var asp = AudioStreamPlayer.new()
+	asp.stream = stream
+	asp.volume_db = volume
+	get_tree().current_scene.add_child(asp)
+	asp.play()
+	asp.finished.connect(asp.queue_free)
+
 func _on_asteroid_destroyed():
 	if game_over: return
 	
 	if not hit_something:
+		var gm = get_parent()
+		if gm and "current_lives" in gm and gm.current_lives <= 1:
+			if BGM_player:
+				BGM_player.stop()
+			play_sound(sfx_lose, -2.0)
 		emit_signal("life_lost")
 		spawn_asteroid()
 		return
@@ -120,6 +155,10 @@ func win_game(reason: String):
 	for p in get_tree().get_nodes_in_group("planet"):
 		p.move_speed = 0
 		
+	if BGM_player:
+		BGM_player.stop()
+	play_sound(sfx_win, -2.0)
+		
 	await get_tree().create_timer(2.0).timeout
 	emit_signal("completed")
 
@@ -133,5 +172,15 @@ func lose_game(reason: String):
 	for p in get_tree().get_nodes_in_group("planet"):
 		p.move_speed = 0
 		
+	if BGM_player:
+		BGM_player.stop()
+	play_sound(sfx_lose, -2.0)
+		
 	await get_tree().create_timer(2.0).timeout
 	emit_signal("lost")
+
+func _on_timeout() -> void:
+	if not game_over:
+		if BGM_player:
+			BGM_player.stop()
+		play_sound(sfx_lose, -2.0)
