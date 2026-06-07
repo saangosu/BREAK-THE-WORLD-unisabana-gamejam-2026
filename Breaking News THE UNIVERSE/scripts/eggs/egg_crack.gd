@@ -25,6 +25,9 @@ const egg_crack_two := "res://textures/art/egg_crack_2.png"
 const shreds_crack_two := ["res://textures/art/egg_crack_2_shatter_1.png", "res://textures/art/egg_crack_2_shatter_2.png", "res://textures/art/egg_crack_2_shatter_3.png", "res://textures/art/egg_crack_2_shatter_4.png", "res://textures/art/egg_crack_2_shatter_5.png", "res://textures/art/egg_crack_2_shatter_6.png", "res://textures/art/egg_crack_2_shatter_7.png"]
 const shreds_crack_three := ["res://textures/art/egg_crack_3_shatter_1.png", "res://textures/art/egg_crack_3_shatter_2.png", "res://textures/art/egg_crack_3_shatter_3.png"]
 
+const sfx_crack = preload("res://sounds/minigame_1/huevo_planeta/huevo_agrietandose.mp3")
+const sfx_break = preload("res://sounds/minigame_1/huevo_planeta/huevo_roto.wav")
+
 # built in
 func _ready() -> void:
 	hurtbox.input_event.connect(clicked)
@@ -43,6 +46,15 @@ func _physics_process(_delta: float) -> void:
 			last_position = global_position
 
 # functions
+func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
+	if stream == null: return
+	var asp = AudioStreamPlayer.new()
+	asp.stream = stream
+	asp.volume_db = volume
+	get_tree().current_scene.add_child(asp)
+	asp.play()
+	asp.finished.connect(asp.queue_free)
+
 func clicked(_viewport : Viewport, event : InputEvent, _shape_idx) -> void:
 	# checking event type
 	if event.is_action_pressed("click") && impacts < 3 && can_select:
@@ -52,6 +64,7 @@ func clicked(_viewport : Viewport, event : InputEvent, _shape_idx) -> void:
 func check_impacts() -> void:
 	match impacts:
 		3:
+			play_sound(sfx_break, -2.0)
 			for texture in shreds_crack_two:
 				create_shreds(texture)
 			for texture in shreds_crack_three:
@@ -62,6 +75,7 @@ func check_impacts() -> void:
 				create_shreds(texture)
 			$Sprite.texture = load(egg_crack_two)
 		1:
+			play_sound(sfx_crack, -2.0)
 			$Sprite.texture = load(egg_crack_one)
 
 func collided(_area : Area2D) -> void:

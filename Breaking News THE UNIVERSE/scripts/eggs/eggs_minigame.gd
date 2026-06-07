@@ -9,13 +9,17 @@ class_name EggsLevel
 # constants
 const winning_goal = 3
 
+const sfx_viscosity = preload("res://sounds/minigame_1/tazon/viscosidad.mp3")
+const sfx_win = preload("res://sounds/minigame_1/Foleys/gano.mp3")
+const sfx_lose = preload("res://sounds/minigame_1/Foleys/perdiste.mp3")
+
 # variables
 var level_score = 0
 var eggs : Array = []
 
 var game_over = false
-
 var status_label: Label
+var BGM_player : AudioStreamPlayer
 
 # built in
 func _ready() -> void:
@@ -26,6 +30,27 @@ func _ready() -> void:
 	for egg in eggs.size():
 		eggs[egg].cracked.connect(increase_score)
 		eggs[egg].selected.connect(egg_selected)
+		
+	# Play looping background music
+	var bgm = load("res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav")
+	if bgm:
+		print("BGM cargado exitosamente: ", bgm)
+		if bgm is AudioStreamWAV:
+			bgm.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		BGM_player = AudioStreamPlayer.new()
+		BGM_player.stream = bgm
+		BGM_player.volume_db = -12.0 # Adjusted for stable background mixing
+		add_child(BGM_player)
+		BGM_player.play()
+		print("Reproduciendo BGM. Estado: ", BGM_player.playing)
+	else:
+		printerr("ERROR: No se pudo cargar la música de fondo en res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav")
+	
+	# Connect to game timer timeout for lose SFX
+	var game_manager = get_parent()
+	if game_manager and game_manager.has_node("GameTimer"):
+		var game_timer = game_manager.get_node("GameTimer")
+		game_timer.minigame_timed_out.connect(_on_timeout)
 
 func setup_ui():
 	var canvas = CanvasLayer.new()
@@ -40,12 +65,22 @@ func setup_ui():
 	canvas.add_child(status_label)
 
 # functions
+func play_sound(stream: AudioStream, volume: float = 0.0) -> void:
+	if stream == null: return
+	var asp = AudioStreamPlayer.new()
+	asp.stream = stream
+	asp.volume_db = volume
+	get_tree().current_scene.add_child(asp)
+	asp.play()
+	asp.finished.connect(asp.queue_free)
+
 func egg_selected(selected : bool, selected_egg : String) -> void:
 	for egg in eggs.size():
 		if is_instance_valid(eggs[egg]):
 			eggs[egg].switch_can_select(!selected, selected_egg)
 
 func increase_score() -> void:
+	play_sound(sfx_viscosity, -4.0)
 	emit_signal("point_scored")
 	level_score += 1
 	print('new score: ', level_score)
@@ -58,5 +93,15 @@ func win_game(reason: String):
 	status_label.text = reason
 	status_label.modulate = Color(0, 1, 0) # Verde
 	
+	if BGM_player:
+		BGM_player.stop()
+	play_sound(sfx_win, -2.0)
+	
 	await get_tree().create_timer(2.0).timeout
 	emit_signal("completed")
+
+func _on_timeout() -> void:
+	if not game_over:
+		if BGM_player:
+			BGM_player.stop()
+		play_sound(sfx_lose, -2.0)
