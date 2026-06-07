@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brbmaxhu6esf4"
+path="res://.godot/imported/Sonido de pasta por si acaso.mp3-f4f1743eea675f5a41397884d9a20717.mp3str"
+
+[deps]
+
+source_file="res://sounds/minigame_5/Pasta/Sonido de pasta por si acaso.mp3"
+dest_files=["res://.godot/imported/Sonido de pasta por si acaso.mp3-f4f1743eea675f5a41397884d9a20717.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
