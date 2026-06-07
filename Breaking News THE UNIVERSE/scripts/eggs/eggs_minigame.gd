@@ -36,9 +36,10 @@ func _ready() -> void:
 	for egg in eggs.size():
 		eggs[egg].cracked.connect(increase_score)
 		eggs[egg].selected.connect(egg_selected)
-		
-	if BGM_player and BGM_player.stream is AudioStreamWAV:
-		BGM_player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	
+	# -- No sé qué les dijo la IA, pero esto rompe la música xD
+	#if BGM_player and BGM_player.stream is AudioStreamWAV:
+		#BGM_player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	
 	# Connect to game timer timeout for lose SFX
 	var game_manager = get_parent()

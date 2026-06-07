@@ -77,8 +77,9 @@ func spawn_asteroid():
 	call_deferred("add_child", current_asteroid)
 
 func _on_asteroid_launched():
-	var launched_asteroid = current_asteroid
-	await get_tree().create_timer(1.5).timeout
+	var launched_asteroid : Asteroid = current_asteroid
+	var on_screen_notifier : VisibleOnScreenNotifier2D = launched_asteroid.find_child("VisibleOnScreenNotifier2D")
+	await on_screen_notifier.screen_exited
 	if is_instance_valid(launched_asteroid) and not game_over:
 		launched_asteroid.emit_signal("asteroid_destroyed")
 		launched_asteroid.queue_free()

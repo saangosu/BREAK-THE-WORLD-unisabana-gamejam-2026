@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://d2smuk8kuve31" path="res://textures/aaa/Amarillo Mal-Photoroom.png" id="9_46rie"]
 [ext_resource type="Texture2D" uid="uid://00vmpatsk8cq" path="res://textures/aaa/Morao Bien-Photoroom.png" id="10_pqjj3"]
 [ext_resource type="Texture2D" uid="uid://ehckr8sgg1ya" path="res://textures/aaa/Morao Mal-Photoroom.png" id="11_lyjif"]
-
-[ext_resource type="Texture2D" path="res://assets/backgrounds/fondo_6.png" id="bg_tex"]
+[ext_resource type="AudioStream" uid="uid://65kj036sapq1" path="res://sounds/minigame_3/musica_de_fondo/musica_de_fondo.wav" id="13_45ktp"]
+[ext_resource type="Texture2D" uid="uid://t5sa5k318cid" path="res://assets/backgrounds/fondo_6.png" id="bg_tex"]
 
 [node name="Minijuego3" type="Node2D" unique_id=1521550332]
 script = ExtResource("1_7sqbv")
@@ -74,6 +74,11 @@ offset_top = 511.0
 offset_right = 954.0
 offset_bottom = 542.0
 text = "Cargando"
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="." unique_id=2080810232]
+stream = ExtResource("13_45ktp")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="Rojo" to="." method="_on_rojo_pressed"]
 [connection signal="pressed" from="Azul" to="." method="_on_azul_pressed"]

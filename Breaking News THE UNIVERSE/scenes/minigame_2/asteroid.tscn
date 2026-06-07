@@ -1,17 +1,19 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ba0lkd1ejh7wb"]
 
 [ext_resource type="Script" uid="uid://bnktwu72n3sd8" path="res://scripts/asteroid.gd" id="1_ast"]
-[ext_resource type="Texture2D" path="res://assets/sprites/minigame_2/Asteroide.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://dvpyxvx2bynga" path="res://assets/sprites/minigame_2/Asteroide.png" id="2_tex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ast"]
 radius = 30.0
 
-[node name="Asteroid" type="RigidBody2D"]
+[node name="Asteroid" type="RigidBody2D" unique_id=209438929]
 script = ExtResource("1_ast")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1901011678]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_tex")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1312167825]
 shape = SubResource("CircleShape2D_ast")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1921552231]

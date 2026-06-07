@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Asteroid
 
 signal asteroid_launched
 signal asteroid_destroyed
@@ -7,7 +8,7 @@ signal hit_planet
 var dragging = false
 var start_pos = Vector2()
 var max_drag_distance = 200.0
-var launch_multiplier = 10.0
+var launch_multiplier = 15.0
 var launched = false
 
 const sfx_whoosh = preload("res://sounds/minigame_2/Asteroide/whoosh.mp3")

@@ -2,8 +2,8 @@ extends Node
 class_name GameManager
 
 # constants
-const max_time := 10.0
-const min_time := 3.0
+const max_time := 15.0
+const min_time := 5.0
 const max_lives := 3
 
 # onreadies
