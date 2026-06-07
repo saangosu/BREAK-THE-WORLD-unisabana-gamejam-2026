@@ -21,6 +21,12 @@ var game_over = false
 var status_label: Label
 var BGM_player : AudioStreamPlayer
 
+@onready var bowl_sprite = $Bowl
+const tex_vacio = preload("res://assets/sprites/minigame_1/tazon/tazon_vacio.png")
+const tex_1_4 = preload("res://assets/sprites/minigame_1/tazon/tazon_1_4.png")
+const tex_medio = preload("res://assets/sprites/minigame_1/tazon/tazon_medio.png")
+const tex_lleno = preload("res://assets/sprites/minigame_1/tazon/tazon_lleno.png")
+
 # built in
 func _ready() -> void:
 	setup_ui()
@@ -83,6 +89,14 @@ func increase_score() -> void:
 	play_sound(sfx_viscosity, -4.0)
 	emit_signal("point_scored")
 	level_score += 1
+	
+	if level_score == 1:
+		bowl_sprite.texture = tex_1_4
+	elif level_score == 2:
+		bowl_sprite.texture = tex_medio
+	elif level_score == 3:
+		bowl_sprite.texture = tex_lleno
+		
 	print('new score: ', level_score)
 	if level_score == winning_goal:
 		win_game("¡NIVEL COMPLETADO!")
