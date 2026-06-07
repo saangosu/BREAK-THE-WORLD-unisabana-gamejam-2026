@@ -19,7 +19,7 @@ var eggs : Array = []
 
 var game_over = false
 var status_label: Label
-var BGM_player : AudioStreamPlayer
+@onready var BGM_player = $BGMPlayer
 
 @onready var bowl_sprite = $Bowl
 const tex_vacio = preload("res://assets/sprites/minigame_1/tazon/tazon_vacio.png")
@@ -37,20 +37,8 @@ func _ready() -> void:
 		eggs[egg].cracked.connect(increase_score)
 		eggs[egg].selected.connect(egg_selected)
 		
-	# Play looping background music
-	var bgm = load("res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav")
-	if bgm:
-		print("BGM cargado exitosamente: ", bgm)
-		if bgm is AudioStreamWAV:
-			bgm.loop_mode = AudioStreamWAV.LOOP_FORWARD
-		BGM_player = AudioStreamPlayer.new()
-		BGM_player.stream = bgm
-		BGM_player.volume_db = -12.0 # Adjusted for stable background mixing
-		add_child(BGM_player)
-		BGM_player.play()
-		print("Reproduciendo BGM. Estado: ", BGM_player.playing)
-	else:
-		printerr("ERROR: No se pudo cargar la música de fondo en res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav")
+	if BGM_player and BGM_player.stream is AudioStreamWAV:
+		BGM_player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	
 	# Connect to game timer timeout for lose SFX
 	var game_manager = get_parent()

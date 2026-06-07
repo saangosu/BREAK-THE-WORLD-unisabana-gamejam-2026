@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cherqsqhmellw" path="res://scripts/eggs/egg_crack.gd" id="3_eo7gk"]
 [ext_resource type="Texture2D" uid="uid://14yqp2irvoow" path="res://textures/art/egg_uncracked.png" id="4_3osmj"]
 [ext_resource type="PackedScene" uid="uid://44goiwbwusfi" path="res://scenes/eggs/egg_shred.tscn" id="4_poa2p"]
+[ext_resource type="AudioStream" uid="uid://dvr5c7t5ddfy2" path="res://sounds/minigame_1/musica_de_fondo/musica_de_fondo.wav" id="5_bgm"]
 [ext_resource type="Texture2D" uid="uid://b5cslvg7tti8b" path="res://assets/backgrounds/fondo_1.png" id="bg_tex"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_437cf"]
@@ -138,3 +139,8 @@ texture = ExtResource("4_3osmj")
 position = Vector2(5.849717, 12.279282)
 rotation = -0.12391838
 shape = SubResource("CapsuleShape2D_axssh")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=397724676]
+stream = ExtResource("5_bgm")
+volume_db = -12.0
+autoplay = true
